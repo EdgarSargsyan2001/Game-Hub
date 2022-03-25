@@ -1,0 +1,7 @@
+.header-container{
+    width:100%;
+    height: 70px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-evenly;
+}
