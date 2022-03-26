@@ -1,5 +1,5 @@
 function LoginRegister() {
-    return ( <div>Login</div> );
+    return ( <div>Login here</div> );
 }
 
 export default LoginRegister;

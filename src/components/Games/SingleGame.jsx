@@ -32,6 +32,10 @@ function SingleGame() {
           <TicTacToe />
         </div>
       );
+      default:
+        return(
+          <div>There isn't game</div>
+        )
   }
 }
 
