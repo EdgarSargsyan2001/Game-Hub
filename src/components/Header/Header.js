@@ -5,11 +5,7 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
-  //   <Link to="/">
-  //   <Typography variant="h4" color="primary">
-  //     GameHub
-  //   </Typography>
-  // </Link>
+  
   return (
     <div className="header-container">
       <div className="logo">
