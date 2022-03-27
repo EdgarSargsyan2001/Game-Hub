@@ -6,7 +6,7 @@ function Games() {
     
     const handleListItemClick = (e) =>{
        
-        navigate(`${e.target.textContent}`);
+        navigate(`games/${e.target.textContent}`);
     }
     return ( <div>
         <span>Games</span>
