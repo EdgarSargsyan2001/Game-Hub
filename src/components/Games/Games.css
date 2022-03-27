@@ -1,0 +1,28 @@
+.cardsSection{
+    display: flex;
+    justify-content: center;
+}
+
+.cards{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-item{
+    text-align: center;
+    border-radius: 25px ;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 200px;
+}
+.card-image{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    width: 100%;
+}
+.card-button{
+    padding: 10%;
+    width:  10%;
+}
