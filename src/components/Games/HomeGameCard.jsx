@@ -1,6 +1,11 @@
+import { useNavigate } from 'react-router-dom';
+import Games  from './Games'
 import './Games.css'
 
+
+
 const gameCard = [
+    
     {
         src: "./Images/hangMan.png",
         gameName: 'HangMan',
@@ -9,7 +14,7 @@ const gameCard = [
     },
     {
         src: "./Images/rockAndScissors.jpeg",
-        gameName: 'rockAndScissors',
+        gameName: 'RockAndScissors',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
         alt:"rockAndScissors"
     },
@@ -19,27 +24,56 @@ const gameCard = [
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
         alt:"pazl"
     },
-    // {
-    //     src: "./Images/rockAndScissors.jpeg",
-    //     gameName: 'HangMan',
-    //     cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing"
-    // }
+    {
+        src: "./Images/GameTime.jpeg",
+        gameName: 'pazl',
+        cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
+        alt:"pazl"
+    },
+    {
+        src: "./Images/zar.jpeg",
+        gameName: 'pazl',
+        cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
+        alt:"pazl"
+    },
+    {
+        src: "./Images/Tangs.jpeg",
+        gameName: 'pazl',
+        cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
+        alt:"pazl"
+    },
+    
 ]
-console.log(gameCard[0])
+
+
+
+
 function Card() {
+    const games = ["hangman", "puzzle", "rockpaperscissors", "tictactoe"];
+
+    
+    const navigate = useNavigate();
+
+    const handleListItemClick = (e) => {
+
+        navigate(`games/${e.target.textContent}`);
+            //  <ul>
+            //     {games.map((game, i) => <li onClick={handleListItemClick} key={i}>{game}</li>)}
+            // </ul>
+    }
     return (
         <section className='cardsSection'>
-            
-            {gameCard.map((item, index) =>
-                <div className="cards" key={index}>
-                    <div className='card-item'>
-                        <img className='card-image' src={item.src} alt="" />
-                        <button className='card-button'> {item.gameName}</button>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing </p>
+            <div className='cards' >
+            {gameCard.map((item, index ) =>
+                       
+                    <div className='card-item' key={index}>
+                        <img className='card-image' src={item.src} alt={item.alt} />
+                        <button className='card-button' onClick={handleListItemClick} > {item.gameName}</button>
+                        <p className='card-text'> Lorem ipsum, dolor sit amet consectetur adipisicing  adipisicing</p>
                     </div>
-                </div>
-
+            
             )}
+            </div>
         </section>
     );
 }
@@ -48,21 +82,3 @@ export default Card;
 
 
 
-
-{/* <div className="cards">
-            <div className='card-item'>
-                <img className='card-image' src={gameCard[0].src} alt="" />
-                <button>Hangmen</button>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing </p>
-            </div>
-            <div className='card-item'>
-                <img className='card-image' src={imgArray[0]} alt="" />
-                <button>Hangmen</button>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing </p>
-            </div>
-            <div className='card-item'>
-                <img className='card-image' src={imgArray[0]} alt="" />
-                <button>Hangmen</button>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing </p>
-            </div> 
-             </div> */}
