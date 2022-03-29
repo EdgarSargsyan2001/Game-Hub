@@ -6,22 +6,21 @@ import './Games.css';
 
 
 const gameCard = [
-
     {
         src: "./Images/hangMan.png",
-        gameName: 'HangMan',
+        gameName: 'hangman',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
         alt:"HangMan"
     },
     {
         src: "./Images/rockAndScissors.jpeg",
-        gameName: 'RockAndScissors',
+        gameName: 'rockpaperscissors',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
         alt:"rockAndScissors"
     },
     {
         src: "./Images/pazl.jpeg",
-        gameName: 'pazl',
+        gameName: 'puzzle',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
         alt:"pazl"
     },
@@ -39,27 +38,27 @@ const gameCard = [
     },
     {
         src: "./Images/Tangs.jpeg",
-        gameName: 'pazl',
+        gameName: 'hangman',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
         alt:"pazl"
     },
    
 ];
 function Card() {
-    const games = ["hangman", "puzzle", "rockpaperscissors", "tictactoe"];
+    
     const navigate = useNavigate();
 
-    const handleListItemClick = (e) => {
-        navigate(`games/${e.target.textContent}`);
-        // {games.map((game, i) => <li onClick={handleListItemClick} key={i}>{game}</li>)}  ;
+    const handleListItemClick = (item)=> () => {
+        navigate(`games/${item.gameName.toLowerCase()}`);    
     }
+
     return (
         <section className='cardsSection'>
             <div className='cards' >
             {gameCard.map((item, index ) =>
                     <div className='card-item' key={index}>
                         <img className='card-image' src={item.src} alt={item.alt} />
-                        <button className='card-button' onClick={handleListItemClick } > {item.gameName}</button>
+                        <button className='card-button' onClick={handleListItemClick(item) } > {item.gameName}</button>
                         <p className='card-text'> {item.cardTaxt}</p>
                     </div>
             )}
