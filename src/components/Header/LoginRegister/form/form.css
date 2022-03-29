@@ -1,0 +1,34 @@
+.form-div{
+    display: flex;
+    justify-content:center;
+    border-radius: 8px;
+    width: 250px;
+    height: 350px;
+    padding: 15px;
+    border: 2px solid rgb(29, 109, 207);
+    background-color: black;
+    box-shadow: 0 0px 20px 5px rgb(255, 255, 255), 0 0px 30px 2px rgba(255, 255, 255, 0.801);
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+
+}
+.emailInput,.passwordInput{
+    margin-bottom: 40px;
+    padding: 10px;
+}
+
+.button{
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    background:#1976D2FF ;
+}
+.title{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1976D2FF;
+}

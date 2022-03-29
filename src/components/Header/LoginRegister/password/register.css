@@ -1,0 +1,7 @@
+.register{
+    background:#1D77E4FF ;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
