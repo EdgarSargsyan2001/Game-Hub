@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom';
-import Games  from './Games'
-import './Games.css'
+import Games  from './Games';
+
+import './Games.css';
 
 
 
 const gameCard = [
-    
+
     {
         src: "./Images/hangMan.png",
         gameName: 'HangMan',
@@ -42,36 +43,25 @@ const gameCard = [
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
         alt:"pazl"
     },
-    
-]
-
-
-
-
+   
+];
 function Card() {
     const games = ["hangman", "puzzle", "rockpaperscissors", "tictactoe"];
-
-    
     const navigate = useNavigate();
 
     const handleListItemClick = (e) => {
-
         navigate(`games/${e.target.textContent}`);
-            //  <ul>
-            //     {games.map((game, i) => <li onClick={handleListItemClick} key={i}>{game}</li>)}
-            // </ul>
+        // {games.map((game, i) => <li onClick={handleListItemClick} key={i}>{game}</li>)}  ;
     }
     return (
         <section className='cardsSection'>
             <div className='cards' >
             {gameCard.map((item, index ) =>
-                       
                     <div className='card-item' key={index}>
                         <img className='card-image' src={item.src} alt={item.alt} />
-                        <button className='card-button' onClick={handleListItemClick} > {item.gameName}</button>
-                        <p className='card-text'> Lorem ipsum, dolor sit amet consectetur adipisicing  adipisicing</p>
+                        <button className='card-button' onClick={handleListItemClick } > {item.gameName}</button>
+                        <p className='card-text'> {item.cardTaxt}</p>
                     </div>
-            
             )}
             </div>
         </section>
