@@ -1,18 +1,21 @@
 import { Typography } from "@mui/material";
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signOut,getAuth } from "firebase/auth";
 
 import "./Header.css";
 
 function Header({hesAccaunt,setHasAccount,setAccauntData}) {
   
+  const navigate = useNavigate();
   
-  function handleSingOut(){
 
+  function handleSingOut(){
     const auth = getAuth();
-    
+      
+
+      navigate('/')
       setHasAccount(false)
       signOut(auth)
       setAccauntData('')
@@ -41,8 +44,8 @@ function Header({hesAccaunt,setHasAccount,setAccauntData}) {
       {
         hesAccaunt ? (
           <Link to="/leaderpage">
-            <Typography variant="h6" color="primary">
-              LeaderPage
+            <Typography variant="h6" color="primary"  className="LeaderPageText">
+              LeaderPage<p className="Accauntext">{hesAccaunt.email}</p>
             </Typography>
           </Link>
           
@@ -54,12 +57,14 @@ function Header({hesAccaunt,setHasAccount,setAccauntData}) {
         
         {
           hesAccaunt ?
-          
+            <>
             <Button 
               onClick={handleSingOut} 
               variant="contained"
               
             >Log Out</Button>
+            
+            </>
 
           :
 

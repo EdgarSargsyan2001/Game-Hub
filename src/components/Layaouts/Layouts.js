@@ -3,6 +3,8 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./layouts.css";
 
+// import '../Games/RockPaperScissors/imagesRockPaperScissors/rock'
+
 export default function Layout({hesAccaunt,setHasAccount,setAccauntData}){
     return(
         <div className="layout-container">
@@ -15,11 +17,13 @@ export default function Layout({hesAccaunt,setHasAccount,setAccauntData}){
 
             />
             
-        <div>
+                <div className="Outlet">
 
-            <Outlet/>
+                    <Outlet/>
 
-        </div>
+                </div>
+
+
             <Footer/>
         </div>
     )

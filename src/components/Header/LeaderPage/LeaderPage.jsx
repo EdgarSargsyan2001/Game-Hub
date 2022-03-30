@@ -1,73 +1,99 @@
 // import { getAuth } from "firebase/auth";
-// import { doc, getFirestore, setDoc ,collection, getDocs} from "firebase/firestore"; 
-// import { useEffect, useState } from "react";
+import { getFirestore ,collection, getDocs} from "firebase/firestore"; 
+import { useEffect, useState } from "react";
+import SingleLeaderGame from './singleLeaderGame'
 import './LeaderPage.css'
 
-function LeaderPage({hesAccaunt}) {
+function LeaderPage({hesAccaunt,alluserData,setAlluserData}) {
 
-    // const [value,setValue] = useState('')
-    // const [objALl,SetObjALl] = useState('')
-    // const [accauntData,setAccauntData] = useState('')
-    // const auth = getAuth();
-    // const db = getFirestore()
-    
-    // const obj={
-    //     ii:"hgf",
-    //     value:+value 
-    // }
-
-    // function hendleclick(){
-
-    //     setDoc(doc(db, "users", auth?.currentUser?.uid), {
-    //         ...accauntData,
-            
-    //         game2:{...obj},
-            
-    //     });
-
-    // }
+    const [RockPaperScissorsWin,setRockPaperScissorsWin] = useState('')
+    const db = getFirestore()
 
 
-    // useEffect(async()=>{
-    //     if(hesAccaunt){
+    // console.log(alluserData)
 
-    //         let arr=[]
-    //         const querySnapshot = await getDocs(collection(db, "users"));
-    //         //All Data
-    //         querySnapshot.forEach((doc) => {
-    //             arr.push({...doc.data(),id:doc.id,email:hesAccaunt.email})
+    useEffect(async()=>{
+        if(hesAccaunt){
+
+            let arr=[]
+            const querySnapshot = await getDocs(collection(db, "users"));
+            //All Data
+            querySnapshot.forEach((doc) => {
+                arr.push({...doc.data(),id:doc.id})
                
-    //         })
-    //         SetObjALl(arr)
+            })
+            setAlluserData(arr)
 
-    //         //AccauntData
-    //         querySnapshot.forEach((doc) => {
-    //             if(doc.id === hesAccaunt.uid){
-    //                 setAccauntData({...doc.data(),id:doc.id,email:hesAccaunt.email})
-    //             }
-               
-    //         })
-
-
-    //     }else{
             
-    //         setAccauntData('')
-    //         SetObjALl('')
-    //     }
+
+        }else{
+          setAlluserData('')
+        }
         
-    // },[hesAccaunt])
-    
-    
-    // console.log(objALl)
-    // console.log(accauntData)
+    },[hesAccaunt])
+
+    useEffect(()=>{
+
+        if(alluserData && hesAccaunt){
+
+            let Winner = 0
+            let WunnerData = ''
+
+            alluserData.forEach(el=>{
+                if(el.RockPaperScissors.scorre > Winner ){
+
+                    Winner = el.RockPaperScissors.scorre
+                    WunnerData = el
+                    
+                }
+
+            })
+
+            setRockPaperScissorsWin(WunnerData)
+        }
+
+    },[alluserData])
     
     return (
+        hesAccaunt &&
         <div className="LeaderPage">
-            LeaderPage
-
           
+            <SingleLeaderGame
+                DataWiner={RockPaperScissorsWin}
+                title="RockPaperScissors"
+                imgSrc='./Images/rockAndScissors.jpeg'
+            />
+            <SingleLeaderGame
+                // DataWiner={RockPaperScissorsWin}
+                title="GameTime"
+                imgSrc='./Images/GameTime.jpeg'
+            />
+            
+            <SingleLeaderGame
+                // DataWiner={RockPaperScissorsWin}
+                title="hangMan"
+                imgSrc='./Images/hangMan.png'
+            />
+            
+            <SingleLeaderGame
+                // DataWiner={RockPaperScissorsWin}
+                title="pazl"
+                imgSrc='./Images/pazl.jpeg'
+            />
+            <SingleLeaderGame
+                // DataWiner={RockPaperScissorsWin}
+                title="Tangs"
+                imgSrc='./Images/Tangs.jpeg'
+            />
+            <SingleLeaderGame
+                // DataWiner={RockPaperScissorsWin}
+                title="zar"
+                imgSrc='./Images/zar.jpeg'
+            />
+            
+            
         </div> 
-         
+
     );
 }
 

@@ -2,6 +2,12 @@
 a{
     text-decoration: none;
 }
+.Outlet{
+    background-color: #1D77E4FF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .layout-container{
     display: flex;
     flex-direction: column;

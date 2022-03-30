@@ -4,8 +4,8 @@ import Puzzle from "./Puzzle/Puzzle";
 import RockPaperScissors from "./RockPaperScissors/RockPaperScissors";
 import TicTacToe from "./TicTacToe/TicTacToe";
 import { useEffect } from "react";
-import './SingleGame.css'
 import { getFirestore,collection, getDocs,setDoc,doc} from "firebase/firestore"; 
+import './SingleGame.css'
 
 
 function SingleGame({hesAccaunt,accauntData,setAccauntData}) {
@@ -15,37 +15,18 @@ function SingleGame({hesAccaunt,accauntData,setAccauntData}) {
   const db = getFirestore()
 
 
-  useEffect(async()=>{
-
-    if(hesAccaunt){
-        const querySnapshot = await getDocs(collection(db, "users"));
-
-        //AccauntData
-        querySnapshot.forEach((doc) => {
-            if(doc.id === hesAccaunt.uid){
-                setAccauntData({...doc.data(),id:doc.id,email:hesAccaunt.email})
-            }
-           
-        })
-    }else{
-      
-      setAccauntData('')
-
-    }
-    
-  },[hesAccaunt])
-
-
-  console.log(accauntData)
+  // console.log(accauntData)
 
 
 
   switch (gameName) {
     case "hangman":
       return (
+        
         <div className="div-height">
           <Hangman accauntData={accauntData} hesAccaunt={hesAccaunt} db={db}/>
         </div>
+        
       );
     case "puzzle":
       return (
@@ -55,8 +36,9 @@ function SingleGame({hesAccaunt,accauntData,setAccauntData}) {
       );
     case "rockpaperscissors":
       return (
-        <div className="div-height">
-          <RockPaperScissors />
+        
+        <div className="div-height rockpaperscissors">
+          <RockPaperScissors accauntData={accauntData} hesAccaunt={hesAccaunt} db={db} />
         </div>
       );
     case "tictactoe":

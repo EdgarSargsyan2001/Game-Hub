@@ -9,8 +9,10 @@ import SingleGame from "./components/Games/SingleGame";
 import { getAuth,onAuthStateChanged,signOut } from "firebase/auth";
 
 
-import "./App.css";
+
+import { doc, getFirestore, setDoc ,collection, getDocs} from "firebase/firestore"; 
 import { useEffect, useState } from "react";
+import "./App.css";
 
 
 
@@ -41,11 +43,11 @@ function App() {
       <Routes>
         
         <Route path="/" element={<Layout hesAccaunt={hesAccaunt} setHasAccount={setHasAccount} setAccauntData={setAccauntData}/>}>
+          <Route path="/" element={<Home accauntData={accauntData} setAccauntData={setAccauntData} hesAccaunt={hesAccaunt}/>} />
           <Route path="/login" element ={<Login/>}/>
           <Route path="/register" element ={<Register/>}/>
-          <Route path="/leaderpage" element={<LeaderPage accauntData={accauntData} setAccauntData={setAccauntData} hesAccaunt={hesAccaunt} />}/>
+          <Route path="/leaderpage" element={<LeaderPage alluserData={alluserData} setAlluserData={setAlluserData} hesAccaunt={hesAccaunt} />}/>
           <Route path="games/:gameName" element={<SingleGame accauntData={accauntData} setAccauntData={setAccauntData} hesAccaunt={hesAccaunt} />}/>
-          <Route path="/" element={<Home />} />
           
         </Route>
       </Routes>

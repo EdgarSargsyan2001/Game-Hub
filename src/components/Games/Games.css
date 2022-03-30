@@ -27,7 +27,7 @@
     flex-direction: column;
     align-items: center;
     margin-left: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 3%;
 }
 :hover.card-item{
     /* width: 31%; */
