@@ -3,8 +3,7 @@ import Hangman from "./Hangman/Hangman";
 import Puzzle from "./Puzzle/Puzzle";
 import RockPaperScissors from "./RockPaperScissors/RockPaperScissors";
 import TicTacToe from "./TicTacToe/TicTacToe";
-import { useEffect } from "react";
-import { getFirestore,collection, getDocs,setDoc,doc} from "firebase/firestore"; 
+import { getFirestore} from "firebase/firestore"; 
 import './SingleGame.css'
 
 

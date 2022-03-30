@@ -6,11 +6,10 @@ import Register from "./components/Header/LoginRegister/password/Register";
 import Login from "./components/Header/LoginRegister/login/Login";
 import LeaderPage from "./components/Header/LeaderPage/LeaderPage";
 import SingleGame from "./components/Games/SingleGame";
-import { getAuth,onAuthStateChanged,signOut } from "firebase/auth";
+import { getAuth,onAuthStateChanged } from "firebase/auth";
 
 
 
-import { doc, getFirestore, setDoc ,collection, getDocs} from "firebase/firestore"; 
 import { useEffect, useState } from "react";
 import "./App.css";
 

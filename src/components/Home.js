@@ -1,6 +1,6 @@
 import Games from "./Games/Games";
 import { useEffect } from "react";
-import { getFirestore,collection, getDocs,setDoc,doc} from "firebase/firestore"; 
+import { getFirestore,collection, getDocs} from "firebase/firestore"; 
 
 function Home({accauntData,setAccauntData,hesAccaunt}) {
 
@@ -8,23 +8,27 @@ function Home({accauntData,setAccauntData,hesAccaunt}) {
 
     console.log()
 
-    useEffect(async(accauntData)=>{
+    useEffect(()=>{
+        async function GetData(){
+            if(hesAccaunt){
 
-        if(hesAccaunt){
-            const querySnapshot = await getDocs(collection(db, "users"));
-    
-            //AccauntData
-            querySnapshot.forEach((doc) => {
-                if(doc.id === hesAccaunt.uid){
-                    setAccauntData({...doc.data(),id:doc.id,email:hesAccaunt.email,i:true})
-                }
-               
-            })
-        }else{
-          
-          setAccauntData('')
-    
+                    const querySnapshot = await getDocs(collection(db, "users"));
+            
+                    //AccauntData
+                    querySnapshot.forEach((doc) => {
+                        if(doc.id === hesAccaunt.uid){
+                            setAccauntData({...doc.data(),id:doc.id,email:hesAccaunt.email,i:true})
+                        }
+                    
+                    })
+
+                }else{
+                
+                setAccauntData('')
+                
+            }
         }
+        GetData()
         
       },[hesAccaunt])
 

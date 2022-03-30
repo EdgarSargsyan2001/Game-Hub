@@ -1,5 +1,5 @@
 
-import { doc, setDoc} from "firebase/firestore"; 
+// import { doc, setDoc} from "firebase/firestore"; 
 
 
 function Hangman({hesAccaunt,accauntData,db}) {

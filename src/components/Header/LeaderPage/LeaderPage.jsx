@@ -12,23 +12,27 @@ function LeaderPage({hesAccaunt,alluserData,setAlluserData}) {
 
     // console.log(alluserData)
 
-    useEffect(async()=>{
-        if(hesAccaunt){
+    useEffect(()=>{
+        async function GetData(){
+            if(hesAccaunt){
 
-            let arr=[]
-            const querySnapshot = await getDocs(collection(db, "users"));
-            //All Data
-            querySnapshot.forEach((doc) => {
-                arr.push({...doc.data(),id:doc.id})
-               
-            })
-            setAlluserData(arr)
-
-            
-
-        }else{
-          setAlluserData('')
+                let arr=[]
+                const querySnapshot = await getDocs(collection(db, "users"));
+                //All Data
+                querySnapshot.forEach((doc) => {
+                    arr.push({...doc.data(),id:doc.id})
+                   
+                })
+                setAlluserData(arr)
+    
+                
+    
+            }else{
+              setAlluserData('')
+            }
         }
+        GetData()
+        
         
     },[hesAccaunt])
 
@@ -52,7 +56,7 @@ function LeaderPage({hesAccaunt,alluserData,setAlluserData}) {
             setRockPaperScissorsWin(WunnerData)
         }
 
-    },[alluserData])
+    },[alluserData,hesAccaunt])
     
     return (
         hesAccaunt &&
