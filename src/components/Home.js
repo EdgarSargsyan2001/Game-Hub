@@ -4,14 +4,14 @@ import { getFirestore,collection, getDocs} from "firebase/firestore";
 
 function Home({accauntData,setAccauntData,hesAccaunt}) {
 
-    const db = getFirestore()
+    
 
     console.log()
 
     useEffect(()=>{
         async function GetData(){
             if(hesAccaunt){
-
+                    const db = getFirestore()
                     const querySnapshot = await getDocs(collection(db, "users"));
             
                     //AccauntData
@@ -30,7 +30,7 @@ function Home({accauntData,setAccauntData,hesAccaunt}) {
         }
         GetData()
         
-      },[hesAccaunt])
+      },[hesAccaunt,setAccauntData])
 
     //<SportsEsportsIcon sx={{ fontSize: 50, color:"white",margin:"30%"}}/>
     return (

@@ -42,6 +42,9 @@ function Register() {
                     case "auth/too-many-requests":
                         passwordRef.current.setCustomValidity("weak-password")
                         break;
+                    default :
+                        passwordRef.current.setCustomValidity("error")
+                        break;    
                 }
         })
 

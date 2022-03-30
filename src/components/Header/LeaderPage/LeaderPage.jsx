@@ -7,7 +7,7 @@ import './LeaderPage.css'
 function LeaderPage({hesAccaunt,alluserData,setAlluserData}) {
 
     const [RockPaperScissorsWin,setRockPaperScissorsWin] = useState('')
-    const db = getFirestore()
+    
 
 
     // console.log(alluserData)
@@ -15,8 +15,9 @@ function LeaderPage({hesAccaunt,alluserData,setAlluserData}) {
     useEffect(()=>{
         async function GetData(){
             if(hesAccaunt){
-
+                const db = getFirestore()
                 let arr=[]
+                
                 const querySnapshot = await getDocs(collection(db, "users"));
                 //All Data
                 querySnapshot.forEach((doc) => {
@@ -34,7 +35,7 @@ function LeaderPage({hesAccaunt,alluserData,setAlluserData}) {
         GetData()
         
         
-    },[hesAccaunt])
+    },[hesAccaunt,setAlluserData])
 
     useEffect(()=>{
 

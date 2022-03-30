@@ -45,6 +45,9 @@ function Login() {
                     case "auth/too-many-requests":
                         passwordRef.current.setCustomValidity("wrong-password")
                         break;
+                    default :
+                        passwordRef.current.setCustomValidity("error")
+                        break;
                 }
                 
             })
