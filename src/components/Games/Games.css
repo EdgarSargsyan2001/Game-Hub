@@ -2,7 +2,28 @@
     display: flex;
     justify-content: space-evenly;
     background-color: #1d77e4;
-    padding: 40px 0px;
+    padding: 20px 0 40px 0px;
+}
+
+.Game{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.leaderpageDiv{
+    border-radius: 8px;
+    margin-top: 15px;
+    padding: 15px;
+    background-color: rgb(154, 197, 230);
+}
+.leaderpageText{
+    text-align: center;
+    /* font-size: 18px !important; */
+}
+.Accauntext{
+    text-align: center;
 }
 .cards{
     background:white ;
@@ -34,12 +55,18 @@
     transform: scale(1.1,1.1);
 }
 .card-image{
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    width: 100%;
+    border-radius: 5px;
+    width: 90%;
     height: 13rem;    
 }
-.card-button{
+.title-Game{
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    color: white;
+    margin: 10px 0;
+}
+/* .card-button{
     width: 64%;
     padding: 4%;
     border-radius: 15px;
@@ -48,7 +75,7 @@
     cursor: pointer;
     background-color: #0e0f12;
     color: #5486c4;
-}
+} */
 :hover.card-button{
     background-color: #1d77e4;
     color: white;  
@@ -90,8 +117,13 @@
     }
     
   }
+  @media screen and (min-width: 701px) {
+    .leaderpageDiv{
+        display: none;
+    }
+  }
 
-  @media screen and (max-width: 800px) {
+  @media screen and (max-width: 950px) {
     .card-item{
         width: 47%;
         margin-bottom: 9%;
@@ -104,7 +136,7 @@
        font-size: 11px;
     }
   }
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 640px) {
     .card-item{
         width: 100%;
         margin-bottom: 9%;

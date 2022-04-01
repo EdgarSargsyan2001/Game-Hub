@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-
 import './Games.css';
 
 
@@ -57,8 +56,8 @@ function Card() {
             <div className='cards' >
             {gameCard.map((item, index ) =>
                     <div className='card-item' key={index} onClick={handleListItemClick(item) }>
+                        <p className='title-Game'>{item.gameName} </p>
                         <img className='card-image' src={item.src} alt={item.alt} />
-                        <button className='card-button' onClick={handleListItemClick(item) } > {item.gameName}</button>
                         <p className='card-text'> {item.cardTaxt}</p>
                     </div>
             )}

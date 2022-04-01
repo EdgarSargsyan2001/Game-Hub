@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import Button from "@mui/material/Button"
 import './form.css'
 
 function Form ({buttonTitle,handleClick,title}) {
@@ -53,7 +54,10 @@ function Form ({buttonTitle,handleClick,title}) {
                 
             />
             
-            <button className="button">{buttonTitle}</button>
+            <button style={{display:"none"}}></button>
+            <Button variant="contained" onClick={onSubmit} className="buttonLogReg">{buttonTitle}</Button>
+
+            
 
          </form>
 

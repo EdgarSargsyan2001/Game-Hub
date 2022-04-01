@@ -21,7 +21,8 @@
     padding: 10px;
 }
 
-.button{
+.buttonLogReg{
+    width: 185px !important;
     padding: 10px;
     cursor: pointer;
     color: white;

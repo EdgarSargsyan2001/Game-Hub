@@ -35,22 +35,22 @@ function Header({hesAccaunt,setHasAccount,setAccauntData}) {
         </Link>
 
         <Link to="/">
-          <Typography variant="h4" color="primary">
+          <Typography className="GameHubText" variant="h4" color="primary">
             GameHub
           </Typography>
         </Link>
 
       </div>
+
       {
-        hesAccaunt ? (
+        hesAccaunt &&
+          <div className="leaderpageHeader">
           <Link to="/leaderpage">
-            <Typography variant="h6" color="primary"  className="LeaderPageText">
+            <Typography variant="h4" color="primary" className="leaderpageText">
               LeaderPage<p className="Accauntext">{hesAccaunt.email}</p>
             </Typography>
           </Link>
-          
-        ) : ''
-        
+          </div>
       }
 
       <div>
@@ -61,20 +61,21 @@ function Header({hesAccaunt,setHasAccount,setAccauntData}) {
             <Button 
               onClick={handleSingOut} 
               variant="contained"
-              
+              className="buttonSize"
+
             >Log Out</Button>
-            
+          
             </>
 
           :
 
           <>
             <Link to="/login">
-              <Button variant="contained">Login</Button>
+              <Button variant="contained" className="buttonSize">Login</Button>
             </Link>
 
             <Link to="/register">
-              <Button variant="outlined">Register</Button>
+              <Button variant="outlined" className="buttonSize">Register</Button>
             </Link>
           </>
           

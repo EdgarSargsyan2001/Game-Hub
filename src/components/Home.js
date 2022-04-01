@@ -1,9 +1,11 @@
 import Games from "./Games/Games";
-import { useEffect } from "react";
-import { getFirestore,collection, getDocs} from "firebase/firestore"; 
+import { useEffect, useState } from "react";
+import { getFirestore,collection, getDocs} from "firebase/firestore";
+
 
 function Home({accauntData,setAccauntData,hesAccaunt}) {
 
+    const [flag,setFlag] = useState(false)
     
 
     console.log()
@@ -22,22 +24,31 @@ function Home({accauntData,setAccauntData,hesAccaunt}) {
                     
                     })
 
+                    setTimeout(()=>{
+                        setFlag(true)
+                    },0)
+
                 }else{
-                
+                    setFlag(true)
                 setAccauntData('')
                 
             }
         }
         GetData()
+
         
       },[hesAccaunt,setAccauntData])
 
+
+
     //<SportsEsportsIcon sx={{ fontSize: 50, color:"white",margin:"30%"}}/>
     return (
-        
+        flag && 
+
         <div>
-            <Games />
-        </div>);
+            <Games hesAccaunt={hesAccaunt} />
+        </div>
+    );
 }
 
 export default Home;
