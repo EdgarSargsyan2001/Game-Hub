@@ -5,6 +5,7 @@ import RockPaperScissors from "./RockPaperScissors/RockPaperScissors";
 import TicTacToe from "./TicTacToe/TicTacToe";
 import { getFirestore} from "firebase/firestore"; 
 import './SingleGame.css'
+import SnakeArea from "./Snake/SnakeArea";
 
 
 function SingleGame({hesAccaunt,accauntData,setAccauntData}) {
@@ -45,6 +46,14 @@ function SingleGame({hesAccaunt,accauntData,setAccauntData}) {
         <div className="div-height">
           <TicTacToe />
         </div>
+      );
+      case "snake":
+      return (
+        
+        <div className="div-height">
+          <SnakeArea accauntData={accauntData} hesAccaunt={hesAccaunt} db={db}/>
+        </div>
+        
       );
       default:
         return(

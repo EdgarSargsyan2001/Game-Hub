@@ -6,6 +6,12 @@ import './Games.css';
 
 const gameCard = [
     {
+        src: "./Images/snake.jpg",
+        gameName: 'SNAKE',
+        cardTaxt: "Snake is a computer game that first appeared in the Nokia 6110 feature phone.",
+        alt:"snake"
+    },
+    {
         src: "./Images/hangMan.png",
         gameName: 'hangman',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
@@ -41,6 +47,7 @@ const gameCard = [
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
         alt:"pazl"
     },
+    
    
 ];
 function Card() {
