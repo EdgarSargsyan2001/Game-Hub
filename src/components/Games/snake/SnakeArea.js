@@ -1,6 +1,6 @@
 
 import { doc, setDoc} from "firebase/firestore"; 
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useCallback } from "react";
 import './snakeCss.css'
 
 
@@ -45,39 +45,41 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
         }
     }
     
-    const handleKeyDown = (el)=>{
-        let a = availableKey.indexOf(el.key);
-
-        if(a>=0 && availableKey[a] === "ArrowDown" && qayl !== "verev"){
-            setMove([0,1]);
-            qayl = "nerqev";
-        }
-         else if(a>=0 && availableKey[a] === "ArrowRight" && qayl !== "dzax"){
-            qayl = "aj"
-            setMove([1,0]);
-         }
-         else if(a>=0 && availableKey[a] === "ArrowLeft" && qayl !== "aj"){
-            setMove([-1,0]);
-            qayl = "dzax"
-         }
-         else if(a>=0 && availableKey[a] === "ArrowUp" && qayl !== "nerqev"){
-            qayl = "verev" 
-            setMove([0,-1]);
-            
-         }
-    }
+    
+    
     useEffect(()=>{
+
+        const handleKeyDown = (el)=>{
+            let a = availableKey.indexOf(el.key);
+    
+            if(a>=0 && availableKey[a] === "ArrowDown" && qayl !== "verev"){
+                setMove([0,1]);
+                qayl = "nerqev";
+            }
+             else if(a>=0 && availableKey[a] === "ArrowRight" && qayl !== "dzax"){
+                qayl = "aj"
+                setMove([1,0]);
+             }
+             else if(a>=0 && availableKey[a] === "ArrowLeft" && qayl !== "aj"){
+                setMove([-1,0]);
+                qayl = "dzax"
+             }
+             else if(a>=0 && availableKey[a] === "ArrowUp" && qayl !== "nerqev"){
+                qayl = "verev" 
+                setMove([0,-1]);
+                
+             }
+        }
         
         document.addEventListener('keydown',handleKeyDown);
-       return()=>snakeMoveSpeed=''
-    },[handleKeyDown])
-        
-    useEffect(()=>{
-        const interval = moveFunc();
-        return ()=> clearInterval(interval)
-    }, [snake,moveFunc])
 
-    const moveFunc = ()=> {
+       return()=>snakeMoveSpeed=''
+
+    },[])
+        
+    
+
+    const moveFunc = useCallback(()=> {
         const jamanak = setTimeout(()=>{
         const newSnake = snake;
         const head = [
@@ -120,9 +122,13 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
     }, snakeMoveSpeed)
 
     return jamanak;
-    }
+    })
 
-
+    useEffect(()=>{
+        const interval = moveFunc();
+        return ()=> clearInterval(interval)
+        
+    }, [snake])
 
    if(gameOver && snakeMoveSpeed){
 
