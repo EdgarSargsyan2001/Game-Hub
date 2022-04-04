@@ -19,7 +19,7 @@ function Home({accauntData,setAccauntData,hesAccaunt}) {
                     //AccauntData
                     querySnapshot.forEach((doc) => {
                         if(doc.id === hesAccaunt.uid){
-                            setAccauntData({...doc.data(),id:doc.id,email:hesAccaunt.email,i:true})
+                            setAccauntData({...doc.data(),id:doc.id,email:hesAccaunt.email})
                         }
                     
                     })

@@ -24,8 +24,8 @@ const gameCard = [
         alt:"pazl"
     },
     {
-        src: "./Images/GameTime.jpeg",
-        gameName: 'pazl',
+        src: "./Images/snake.png",
+        gameName: 'snake',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
         alt:"pazl"
     },

@@ -7,3 +7,9 @@
     justify-content: center;
     align-items: center;
 }
+.snakeGame{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+}

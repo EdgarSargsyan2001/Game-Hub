@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import Hangman from "./Hangman/Hangman";
-import Puzzle from "./Puzzle/Puzzle";
+import SnakeArea from "./snake/SnakeArea";
 import RockPaperScissors from "./RockPaperScissors/RockPaperScissors";
 import TicTacToe from "./TicTacToe/TicTacToe";
 import { getFirestore} from "firebase/firestore"; 
@@ -14,10 +14,6 @@ function SingleGame({hesAccaunt,accauntData,setAccauntData}) {
   const db = getFirestore()
 
 
-  // console.log(accauntData)
-
-
-
   switch (gameName) {
     case "hangman":
       return (
@@ -27,10 +23,10 @@ function SingleGame({hesAccaunt,accauntData,setAccauntData}) {
         </div>
         
       );
-    case "puzzle":
+    case "snake":
       return (
-        <div className="div-height">
-          <Puzzle accauntData={accauntData} hesAccaunt={hesAccaunt} db={db}/>
+        <div className="div-height snakeGame">
+          <SnakeArea accauntData={accauntData} hesAccaunt={hesAccaunt} db={db} />
         </div>
       );
     case "rockpaperscissors":

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react"
+import TextField from '@mui/material/TextField';
 import Button from "@mui/material/Button"
 import './form.css'
 
@@ -6,22 +7,28 @@ function Form ({buttonTitle,handleClick,title}) {
 
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const emailRef = useRef()
-    const passwordRef = useRef()
+    const [emailError,setEmailError] = useState(false)
+    const [passwordError,setPasswordError] = useState(false)
+    const [emailErrorText,setEmailErrorText] = useState('')
+    const [passwordErrorText,setPasswordErrorText] = useState('')
+
 
    
     function onSubmit(e){
 
         e.preventDefault()
-        handleClick(emailRef,passwordRef,email,password)
+        handleClick(email,password,setEmailError,setPasswordError,setEmailErrorText,setPasswordErrorText)
 
     }
 
 
     useEffect(()=>{
 
-        emailRef.current.setCustomValidity("")
-        passwordRef.current.setCustomValidity("")
+        setEmailError(false)
+        setPasswordError(false)
+        setEmailErrorText('')
+        setPasswordErrorText('')
+        
 
     },[email,password])
 
@@ -30,34 +37,35 @@ function Form ({buttonTitle,handleClick,title}) {
          <form  className="form" onSubmit={(e)=>onSubmit(e)}>
             <h2 className="title">{title}</h2>
 
-            <input 
+            <TextField
                 type='email'
+                label="Email"
                 name='email'
                 className="emailInput"
-                placeholder="email"
-                ref={emailRef}
-                required
+                error={emailError}
+                helperText={emailErrorText}
+                // required
                 autoFocus
                 value={email}
                 onChange={(e)=> setEmail(e.target.value)}
-                
+            
             />
-            <input 
+           
+            <TextField
                 type='password'
+                label="Password"
                 name='password'
-                ref={passwordRef}
                 className="passwordInput"
-                placeholder="password"
+                error={passwordError}
+                helperText={passwordErrorText}
+                // required
                 value={password}
-                required
                 onChange={(e)=> setPassword(e.target.value)}
                 
             />
             
-            <button style={{display:"none"}}></button>
-            <Button variant="contained" onClick={onSubmit} className="buttonLogReg">{buttonTitle}</Button>
-
             
+            <Button type="submit" variant="contained" className="buttonLogReg">{buttonTitle}</Button>
 
          </form>
 

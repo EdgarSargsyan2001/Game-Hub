@@ -1,18 +1,22 @@
 
-.img{
+/* .img{
     width: inherit;
     height: 200px;
     margin-top: 10px;
     border-radius: 8px;
    
-}
+} */
 
 .LeaderPage{
-    width: 1100px;
     display: flex;
+    min-height: 70vh;
+    align-content: center;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    
+}
+.select{
+    padding: 15px;
 }
 .Winner{
     width: 300px;
@@ -24,9 +28,27 @@
     background-color: white;
 }
 .winnerName{
+    text-align: center;
+    color: rgb(0, 119, 128);
+}
+.YourScore{
     color: green;
+}
+.ol{
+    color: #007780FF;
 }
 .scoree{
     color: red;
 
+}
+
+@media screen and (max-width:400px){
+    .card{
+        padding: 5px !important;
+        margin: 10px !important;
+    }
+    .ol{
+        font-size: 13px;
+        padding: 10px;
+    }
 }

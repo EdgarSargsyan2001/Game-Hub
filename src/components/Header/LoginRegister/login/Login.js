@@ -8,9 +8,21 @@ function Login() {
 
     const navigate = useNavigate();    
     
-    function handleLogin (emailRef,passwordRef,email,password){
+    function handleLogin (
+        email,
+        password,
+        setEmailError,
+        setPasswordError,
+        setEmailErrorText,
+        setPasswordErrorText
+        ){
         
-        if(email === "" || password === ""  ) return
+        if(email === "" || password === ""  ) {
+
+            if(password === "") setPasswordError(true) 
+            if(email === "") setEmailError(true)
+            return
+        }
 
         const auth = getAuth();
 
@@ -20,33 +32,28 @@ function Login() {
                 navigate('/')
             })
 
-
-            .catch((err) => {
+            .catch( (err) => {
                 
                 switch(err.code){
+                    case "auth/user-disabled":
+                    case "auth/user-not-found":
                     case "auth/invalid-email":
-                        emailRef.current.setCustomValidity("invalid-email")
+                        setEmailError(true)
+                        setEmailErrorText("invalid-email")
                         break;
 
-                    case "auth/user-disabled":
-                        emailRef.current.setCustomValidity("user-disabled")
-                        break;
-                    case "auth/user-not-found":
-                        emailRef.current.setCustomValidity("user-not-found")
-                        break;
 
                     case "auth/wrong-password":
-                        passwordRef.current.setCustomValidity("wrong-password")
-                        break;
-                        
                     case "auth/network-request-failed":
-                        passwordRef.current.setCustomValidity("network-request-failed")
-                        break;
                     case "auth/too-many-requests":
-                        passwordRef.current.setCustomValidity("wrong-password")
+                        setPasswordError(true)
+                        setPasswordErrorText("wrong-password")
                         break;
+
+
                     default :
-                        passwordRef.current.setCustomValidity("error")
+                        setEmailError(true)
+                        setEmailError("error")
                         break;
                 }
                 

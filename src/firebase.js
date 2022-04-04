@@ -1,13 +1,17 @@
 import { initializeApp } from "firebase/app";
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAA7SjTIIWJ0IbD1m0U6QgSjh2an7pN2vk",
-  authDomain: "gamehub-17d4e.firebaseapp.com",
-  projectId: "gamehub-17d4e",
-  storageBucket: "gamehub-17d4e.appspot.com",
-  messagingSenderId: "900548221417",
-  appId: "1:900548221417:web:62b1cef4f186392aa8d378"
+
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+
 };
 
- initializeApp(firebaseConfig);
+
+initializeApp(firebaseConfig);
 

@@ -14,7 +14,6 @@ function Header({hesAccaunt,setHasAccount,setAccauntData}) {
   function handleSingOut(){
     const auth = getAuth();
       
-
       navigate('/')
       setHasAccount(false)
       signOut(auth)

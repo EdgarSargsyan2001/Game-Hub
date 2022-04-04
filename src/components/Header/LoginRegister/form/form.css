@@ -6,7 +6,7 @@
     height: 350px;
     padding: 15px;
     border: 2px solid rgb(29, 109, 207);
-    background-color: black;
+    background-color: rgb(134, 223, 234);
     box-shadow: 0 0px 20px 5px rgb(255, 255, 255), 0 0px 30px 2px rgba(255, 255, 255, 0.801);
 }
 .form{
@@ -17,12 +17,13 @@
 
 }
 .emailInput,.passwordInput{
-    margin-bottom: 40px;
-    padding: 10px;
+    /* background: white; */
+    margin-bottom: 40px !important;
+    padding: 1px !important;
 }
 
 .buttonLogReg{
-    width: 185px !important;
+    width: 245px !important;
     padding: 10px;
     cursor: pointer;
     color: white;
