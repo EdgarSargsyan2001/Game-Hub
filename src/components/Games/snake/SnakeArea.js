@@ -48,19 +48,19 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
     const handleKeyDown = (el)=>{
         let a = availableKey.indexOf(el.key);
 
-        if(a>=0 && availableKey[a] == "ArrowDown" && qayl != "verev"){
+        if(a>=0 && availableKey[a] === "ArrowDown" && qayl !== "verev"){
             setMove([0,1]);
             qayl = "nerqev";
         }
-         else if(a>=0 && availableKey[a] == "ArrowRight" && qayl != "dzax"){
+         else if(a>=0 && availableKey[a] === "ArrowRight" && qayl !== "dzax"){
             qayl = "aj"
             setMove([1,0]);
          }
-         else if(a>=0 && availableKey[a] == "ArrowLeft" && qayl != "aj"){
+         else if(a>=0 && availableKey[a] === "ArrowLeft" && qayl !== "aj"){
             setMove([-1,0]);
             qayl = "dzax"
          }
-         else if(a>=0 && availableKey[a] == "ArrowUp" && qayl != "nerqev"){
+         else if(a>=0 && availableKey[a] === "ArrowUp" && qayl !== "nerqev"){
             qayl = "verev" 
             setMove([0,-1]);
             
@@ -70,12 +70,12 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
         
         document.addEventListener('keydown',handleKeyDown);
        return()=>snakeMoveSpeed=''
-    },[])
+    },[handleKeyDown])
         
     useEffect(()=>{
         const interval = moveFunc();
         return ()=> clearInterval(interval)
-    }, [snake])
+    }, [snake,moveFunc])
 
     const moveFunc = ()=> {
         const jamanak = setTimeout(()=>{
@@ -96,9 +96,10 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
             setGameOver(false)
             setScore(snake.length)
 
-               if(hesAccaunt,accauntData){
+               if(hesAccaunt && accauntData){
                   
                   if(snake.length > backData){
+
                      setBeckData(snake.length)
 
                      setDoc(doc(db, "users", hesAccaunt?.uid), {
@@ -135,9 +136,9 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
                 return(
                 <div key={indexR} className="row">
                     {row.map((cell,indexC)=>{
-                        let type = snake.some(el => el[0]==indexR && el[1] == indexC) && "snake";
+                        let type = snake.some(el => el[0]===indexR && el[1] === indexC) && "snake";
                         if(type !== "snake"){
-                            type = (food[0] === indexR && food[1] == indexC) && "food";
+                            type = (food[0] === indexR && food[1] === indexC) && "food";
                         }
                         return(
                          <div className={`cell ${type}`} key={indexC}></div>
