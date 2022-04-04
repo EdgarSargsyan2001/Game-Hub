@@ -46,30 +46,37 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
     }
     
     
+    const handleKeyDown = (el=undefined)=>{
+        let a 
+        if(typeof(el)  !== "string"){
+            a = availableKey.indexOf(el.key);
+
+        }else{
+            
+            a = availableKey.indexOf(el);
+        }
+
+        if(a>=0 && availableKey[a] === "ArrowDown" && qayl !== "verev"){
+            setMove([0,1]);
+            qayl = "nerqev";
+        }
+         else if(a>=0 && availableKey[a] === "ArrowRight" && qayl !== "dzax"){
+            qayl = "aj"
+            setMove([1,0]);
+         }
+         else if(a>=0 && availableKey[a] === "ArrowLeft" && qayl !== "aj"){
+            setMove([-1,0]);
+            qayl = "dzax"
+         }
+         else if(a>=0 && availableKey[a] === "ArrowUp" && qayl !== "nerqev"){
+            qayl = "verev" 
+            setMove([0,-1]);
+            
+         }
+    }
     
     useEffect(()=>{
 
-        const handleKeyDown = (el)=>{
-            let a = availableKey.indexOf(el.key);
-    
-            if(a>=0 && availableKey[a] === "ArrowDown" && qayl !== "verev"){
-                setMove([0,1]);
-                qayl = "nerqev";
-            }
-             else if(a>=0 && availableKey[a] === "ArrowRight" && qayl !== "dzax"){
-                qayl = "aj"
-                setMove([1,0]);
-             }
-             else if(a>=0 && availableKey[a] === "ArrowLeft" && qayl !== "aj"){
-                setMove([-1,0]);
-                qayl = "dzax"
-             }
-             else if(a>=0 && availableKey[a] === "ArrowUp" && qayl !== "nerqev"){
-                qayl = "verev" 
-                setMove([0,-1]);
-                
-             }
-        }
         
         document.addEventListener('keydown',handleKeyDown);
 
@@ -153,6 +160,13 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
                 </div>
                 )
             })}
+       </div>
+       <div className="ButtonManage">
+            <button className="ArrowUpBtn " onClick={(e)=>handleKeyDown("ArrowUp")}></button>
+            <button className="ArrowLeftBtn"  onClick={(e)=>handleKeyDown("ArrowLeft")}></button>
+            <button style={{opacity:"0"}}></button>
+            <button className="ArrowRightBtn" onClick={(e)=>handleKeyDown("ArrowRight")}></button>
+            <button className="ArrowDownBtn" onClick={(e)=>handleKeyDown("ArrowDown")}></button>
        </div>
        </div>
     )

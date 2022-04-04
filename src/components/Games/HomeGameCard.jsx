@@ -6,10 +6,10 @@ import './Games.css';
 
 const gameCard = [
     {
-        src: "./Images/hangMan.png",
-        gameName: 'hangman',
+        src: "./Images/snake.png",
+        gameName: 'snake',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
-        alt:"HangMan"
+        alt:"pazl"
     },
     {
         src: "./Images/rockAndScissors.jpeg",
@@ -24,10 +24,10 @@ const gameCard = [
         alt:"pazl"
     },
     {
-        src: "./Images/snake.png",
-        gameName: 'snake',
+        src: "./Images/hangMan.png",
+        gameName: 'hangman',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
-        alt:"pazl"
+        alt:"HangMan"
     },
     {
         src: "./Images/zar.jpeg",
