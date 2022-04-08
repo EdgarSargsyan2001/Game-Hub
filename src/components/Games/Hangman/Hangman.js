@@ -2,7 +2,7 @@
 // import { doc, setDoc} from "firebase/firestore"; 
 
 
-function Hangman({hesAccaunt,accauntData,db}) {
+function Hangman({hesAccaunt,accauntData}) {
 
 
     return (

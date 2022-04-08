@@ -1,47 +1,26 @@
-// import { getAuth } from "firebase/auth";
-import { getFirestore ,collection, getDocs} from "firebase/firestore"; 
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
+import { hasAccaunt } from '../../../App.js'
+
 import InputLabel from '@mui/material/InputLabel';
-import Box from '@mui/material/Box';
-import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import SingleLeaderGame from './singleLeaderGame'
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import Box from '@mui/material/Box';
+
 import './LeaderPage.css'
 
-function LeaderPage({hesAccaunt,alluserData,setAlluserData}) {
+function LeaderPage({}) {
+    
+    const [alluserData,setalluserData] = useState( JSON.parse( localStorage.getItem('AllUserData')) )
+    const [GameName, setGameName] = useState("RockPaperScissors");
+    const {hesAccaunt} = useContext(hasAccaunt);
 
+    //DataWiner
     const [RockPaperScissorsWin,setRockPaperScissorsWin] = useState(undefined)
     const [snakeAreaWin,setSnakeAreaWin] = useState(undefined)
-    const [GameName, setGameName] = useState("RockPaperScissors");
-        
     
-    
-    // console.log(alluserData)
 
-    useEffect(()=>{
-        async function GetData(){
-            if(hesAccaunt){
-                const db = getFirestore()
-                let arr=[]
-                
-                const querySnapshot = await getDocs(collection(db, "users"));
-                //All Data
-                querySnapshot.forEach((doc) => {
-                    arr.push({...doc.data(),id:doc.id})
-                   
-                })
-                setAlluserData(arr)
-    
-            }else{
-              setAlluserData('')
-            }
-        }
-
-        GetData()
-        
-        
-    },[hesAccaunt,setAlluserData])
 
     useEffect(()=>{
 
@@ -93,7 +72,6 @@ function LeaderPage({hesAccaunt,alluserData,setAlluserData}) {
                 <SingleLeaderGame
                     GAMENAME='RockPaperScissors'
                     DataWiner={RockPaperScissorsWin}
-                    hesAccaunt={hesAccaunt}
                     title="RockPaperScissors"
                     imgSrc='./Images/rockAndScissors.jpeg'
                 />
@@ -104,7 +82,6 @@ function LeaderPage({hesAccaunt,alluserData,setAlluserData}) {
                 <SingleLeaderGame
                     GAMENAME="SnakeArea"
                     DataWiner={snakeAreaWin}
-                    hesAccaunt={hesAccaunt}
                     title="snake"
                     imgSrc='./Images/snake.png'
                 />

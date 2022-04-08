@@ -1,54 +1,54 @@
+import { collection, getDocs, getFirestore} from "firebase/firestore";
+import { useEffect,useContext } from "react";
 import Games from "./Games/Games";
-import { useEffect, useState } from "react";
-import { getFirestore,collection, getDocs} from "firebase/firestore";
+import { hasAccaunt } from '../App'
 
 
-function Home({accauntData,setAccauntData,hesAccaunt}) {
 
-    const [flag,setFlag] = useState(false)
+function Home() {
+
+    const {hesAccaunt} = useContext(hasAccaunt);
+
+    useEffect(async()=>{
+         
+        if(hesAccaunt){
+
+            let arr=[]
+            const db = getFirestore()
+            const querySnapshot = await getDocs(collection(db, "users"));
     
+            //AccauntData
+            querySnapshot.forEach((doc) => {
 
-    console.log()
+                arr.push({...doc.data(),id:doc.id})
 
-    useEffect(()=>{
-        async function GetData(){
-            if(hesAccaunt){
-                    const db = getFirestore()
-                    const querySnapshot = await getDocs(collection(db, "users"));
+                if(doc.id === hesAccaunt.uid){
+                    localStorage.setItem("AccauntData",
+                        JSON.stringify(
+                            {...doc.data(),id:doc.id,email:hesAccaunt.email}
+                        )
+                    )
+                        
+                }
             
-                    //AccauntData
-                    querySnapshot.forEach((doc) => {
-                        if(doc.id === hesAccaunt.uid){
-                            setAccauntData({...doc.data(),id:doc.id,email:hesAccaunt.email})
-                        }
-                    
-                    })
+            })
 
-                    setTimeout(()=>{
-                        setFlag(true)
-                    },0)
-
-                }else{
-                    setFlag(true)
-                setAccauntData('')
-                
-            }
+            //AllUserData
+            localStorage.setItem("AllUserData",JSON.stringify(arr))
+           
         }
-        GetData()
-
         
-      },[hesAccaunt,setAccauntData])
+    },[hesAccaunt])
 
 
 
-    //<SportsEsportsIcon sx={{ fontSize: 50, color:"white",margin:"30%"}}/>
     return (
-        flag && 
 
         <div>
             <Games hesAccaunt={hesAccaunt} />
         </div>
     );
+
 }
 
 export default Home;
