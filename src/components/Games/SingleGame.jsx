@@ -1,16 +1,21 @@
 import { useParams } from "react-router-dom";
-import Hangman from "./Hangman/Hangman";
-import SnakeArea from "./snake/SnakeArea";
+import { getFirestore } from "firebase/firestore"; 
+import { useContext } from "react";
+
 import RockPaperScissors from "./RockPaperScissors/RockPaperScissors";
 import TicTacToe from "./TicTacToe/TicTacToe";
-import { getFirestore} from "firebase/firestore"; 
+import SnakeArea from "./snake/SnakeArea";
+import Hangman from "./Hangman/Hangman";
+import {hasAccaunt} from '../../App'
+
 import './SingleGame.css'
 
 
-function SingleGame({hesAccaunt,accauntData,setAccauntData}) {
+function SingleGame() {
 
-
+  const { hesAccaunt } = useContext(hasAccaunt);
   const { gameName } = useParams();
+  const accauntData = JSON.parse( localStorage.getItem('AccauntData'))
   const db = getFirestore()
 
 

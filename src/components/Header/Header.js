@@ -1,29 +1,33 @@
+import { Link, useNavigate } from "react-router-dom";
+import { signOut, getAuth } from "firebase/auth";
 import { Typography } from "@mui/material";
+import { hasAccaunt } from '../../App'
+import { useContext } from "react";
+
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import Button from "@mui/material/Button";
-import { Link, useNavigate } from "react-router-dom";
-import { signOut,getAuth } from "firebase/auth";
 
 import "./Header.css";
 
-function Header({hesAccaunt,setHasAccount,setAccauntData}) {
+function Header() {
   
+
+  const {hesAccaunt,setHasAccount} = useContext(hasAccaunt);
   const navigate = useNavigate();
-  
+
 
   function handleSingOut(){
+    
     const auth = getAuth();
-      
-      navigate('/')
-      setHasAccount(false)
-      signOut(auth)
-      setAccauntData('')
-      
-  
+    signOut(auth)
+
+    navigate('/')
+    setHasAccount(false)
+
+    localStorage.removeItem('AccauntData')
+    localStorage.removeItem('AllUserData')
+    
   }
-
-
-  // console.log(hesAccaunt)
 
   return (
     <div className="header-container">
