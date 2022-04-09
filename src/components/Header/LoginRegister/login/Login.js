@@ -1,6 +1,8 @@
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {  signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from 'react-router-dom'
 import From from '../form/Form'
+import { auth } from '../../../../firebase'
+
 import './login.css'
 
 
@@ -24,7 +26,6 @@ function Login() {
             return
         }
 
-        const auth = getAuth();
 
         signInWithEmailAndPassword(auth, email, password)
             .then(resp =>{

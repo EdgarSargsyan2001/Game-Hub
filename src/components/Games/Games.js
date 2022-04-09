@@ -9,7 +9,9 @@ function Games({hesAccaunt}) {
     return (
 
         <div className="Game">
+          <div className="gameheader">
 
+          </div>
             {
                 hesAccaunt ? (
 

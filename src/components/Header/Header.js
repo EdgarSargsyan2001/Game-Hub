@@ -1,8 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
-import { signOut, getAuth } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { Typography } from "@mui/material";
 import { hasAccaunt } from '../../App'
 import { useContext } from "react";
+import { auth } from '../../firebase'
+
 
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import Button from "@mui/material/Button";
@@ -18,7 +20,6 @@ function Header() {
 
   function handleSingOut(){
     
-    const auth = getAuth();
     signOut(auth)
 
     navigate('/')
