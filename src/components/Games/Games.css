@@ -1,10 +1,23 @@
 .cardsSection{
+    width: 80%;
     display: flex;
     justify-content: space-evenly;
-    background-color: #1d77e4;
+    /* background-color: #a6c5eb; */
+    background-size: cover;
+    background-attachment:fixed ;
+    background-repeat: no-repeat;
     padding: 20px 0 40px 0px;
 }
-
+.gameheader{
+    width: 77%;
+    height: 74vh;
+    margin-top: 55px;
+    opacity: 0.995;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/002/767/399/large_2x/abstract-neon-dark-gaming-background-free-vector.jpg');
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size:cover ;
+}
 .Game{
     display: flex;
     flex-direction: column;
@@ -26,23 +39,25 @@
     text-align: center;
 }
 .cards{
-    background:white ;
-    border: 2px solid #0e0f12;
-    border-radius: 15px;
-    width: 60%;
+    /* background:rgba(245, 222, 179, 0.519) ; */
+    /* border: 2px solid #0e0f12; */
+    /* border-radius: 15px; */
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
     padding: 25px;
 }
 .card-item{
     width: 30%;
-    background-color: #5486c4;
-    border-radius: 25px ;
+    /* height: 250px; */
+    /* background-color: rgba(36, 36, 36); */
+    /* border: 1px solid red; */
+    
+    border-radius: 5px ;
     text-align: center;
     cursor: pointer;
-    border: 1px solid #0e0f12;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -50,37 +65,38 @@
     margin-left: 2%;
     margin-bottom: 3%;
 }
+:hover.card-item,:hover.card-image{
+    
+    transform: scale(1.05,1.05);
+    opacity: 1;
+    transition: 0.8s;
+    
+}
+
 :hover.card-item{
-    /* width: 31%; */
-    transform: scale(1.1,1.1);
+    box-shadow: 0 0px 20px 5px rgb(255 255 255), 0 0px 30px 2px rgb(255 255 255 / 80%);
+    
 }
 .card-image{
+    position: relative;
     border-radius: 5px;
-    width: 90%;
+    margin: 10px 0;
+    width: 92%;
     height: 13rem;    
 }
 .title-Game{
-    font-size: 20px;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    font-size: 22px;
     font-weight: 700;
     text-align: center;
-    color: white;
+    color: rgb(255, 252, 252);
     margin: 10px 0;
 }
-/* .card-button{
-    width: 64%;
-    padding: 4%;
-    border-radius: 15px;
-    margin-top: 20px;
-    font-size: 19px;
-    cursor: pointer;
-    background-color: #0e0f12;
-    color: #5486c4;
-} */
-:hover.card-button{
-    background-color: #1d77e4;
-    color: white;  
-}
+
 .card-text{  
+    display: none;
     margin-bottom: 15px;
     padding: 15px;
 }
@@ -100,10 +116,13 @@
         font-size: 14px;
      }
     }
-    @media screen and (max-width: 1100px) {
-        .card-item{
-            margin-bottom: 4%;
-        }
+  @media screen and (max-width: 1100px) {
+    .gameheader{
+        height: 60vh;
+    }
+    .card-item{
+        margin-bottom: 4%;
+    }
     .card-image{
         height: 9rem; 
     }
@@ -124,8 +143,11 @@
   }
 
   @media screen and (max-width: 950px) {
+    .gameheader{
+        height: 300px;
+    }
     .card-item{
-        width: 47%;
+        width: 40%;
         margin-bottom: 9%;
     }
     .card-image{
@@ -137,8 +159,12 @@
     }
   }
   @media screen and (max-width: 640px) {
+    .gameheader{
+        height: 200px;
+        
+    }
     .card-item{
-        width: 100%;
+        width: 80%;
         margin-bottom: 9%;
     }
     .card-image{
@@ -147,4 +173,13 @@
     .card-button{
        font-size: 16px;
     }
+  }
+  @media screen and (max-width: 400px) {
+    .gameheader{
+        margin-top: 5px;
+        width: 98%;
+        height: 250px;
+        
+    }
+
   }

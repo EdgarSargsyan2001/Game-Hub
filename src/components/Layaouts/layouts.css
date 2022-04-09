@@ -3,7 +3,10 @@ a{
     text-decoration: none;
 }
 .Outlet{
-    background-color: #1D77E4FF;
+    background-image: url('https://blog.roblox.com/wp-content/uploads/2021/02/SaferInternetDay_v2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;

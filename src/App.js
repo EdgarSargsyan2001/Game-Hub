@@ -1,7 +1,8 @@
 // Lilit
-import { getAuth,onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState ,createContext} from "react";
 import { Route, Routes } from "react-router-dom";
+import { auth } from './firebase'
 
 import Register from "./components/Header/LoginRegister/password/Register";
 import Login from "./components/Header/LoginRegister/login/Login";
@@ -23,7 +24,6 @@ function App() {
   
   
   useEffect(()=>{
-    const auth = getAuth();
     
     onAuthStateChanged( auth,(user) => user ? setHasUser(user) : setHasUser(user) )
 

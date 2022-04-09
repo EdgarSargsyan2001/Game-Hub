@@ -1,7 +1,9 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import {useNavigate} from 'react-router-dom';
-import './register.css'
+import { auth } from '../../../../firebase'
 import From from '../form/Form'
+
+import './register.css'
 
 
 
@@ -27,7 +29,6 @@ function Register() {
             return
         }
 
-        const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
             .then(resp =>{
                 // console.log('sd', resp)
