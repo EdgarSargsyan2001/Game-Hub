@@ -22,20 +22,54 @@
     color: white;
 }
 .logo{
+    position: relative;
     display: flex;
     flex-direction: row;
 }
+.listMore{
+    width: 70vw;
+    height: 80px;
+    border-radius: 50px 0px 50px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    box-shadow: 0 0px 7px 3px #1976D2FF;
+    position: absolute;
+    top: 47px;
+    left: 10px;
+    background: #212121FF;
+}
+.Accauntext2{
+    color: white;
+    text-align: center;
+    font-size: 16px;
+}
+.buttonMore{
+    display: none;
+}
 
 @media screen and (max-width:700px) {
+    .buttonMore{
+        display: block;
+    }
     .leaderpageHeader{
+        display: none;
+    }
+    .GameHubText{
+        display: none;
+    }
+    .header-container{
+        justify-content: space-around;
+    
+    }
+}
+@media screen and (min-width:700px) {
+    .listMore{
         display: none;
     }
     
 }
 @media screen and (max-width:500px) {
-    .GameHubText{
-        display: none;
-    }
     .buttonSize{
         padding: 3px 8px !important;
     }

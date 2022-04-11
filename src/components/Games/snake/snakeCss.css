@@ -52,7 +52,7 @@
 }
 .score2{
   text-align: center;
-  color: black;
+  color: white;
   font-size: 17px;
   font-weight: bold;
 }
@@ -62,7 +62,7 @@
   padding: 15px;
 }
 .buttonSnake{
-  width: 100%;
+  width: 145px;
   padding: 15px;
   cursor: pointer;
   margin: 4px;

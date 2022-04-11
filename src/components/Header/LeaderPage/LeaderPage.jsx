@@ -38,33 +38,34 @@ function LeaderPage({}) {
     return (
         hesAccaunt &&
         <div className="LeaderPage">
-          
-          <Box sx={{ minWidth: 150,margin:5}}>
+          <div className="selectDiv">
+            <Box sx={{ minWidth: 150,margin:5}}>
 
-            <FormControl fullWidth>
-                
-                <InputLabel id="demo-simple-select-label">GameName</InputLabel>
-                <Select
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
-                    value={GameName}
-                    label="GameName"
-                    onChange={(e)=>setGameName(e.target.value)}
-                >
+                <FormControl fullWidth>
+                    
+                    <InputLabel id="demo-simple-select-label">GameName</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={GameName}
+                        label="GameName"
+                        onChange={(e)=>setGameName(e.target.value)}
+                    >
 
-                    <MenuItem value='RockPaperScissors'>
-                        RockPaperScissors 
-                    </MenuItem>
+                        <MenuItem value='RockPaperScissors'>
+                            RockPaperScissors 
+                        </MenuItem>
+                                
+
+                        <MenuItem  value='snake'>
+                            snake
+                        </MenuItem>
                             
-
-                    <MenuItem  value='snake'>
-                        snake
-                    </MenuItem>
-                        
-                            
-                </Select>
-            </FormControl>
-        </Box>
+                                
+                    </Select>
+                </FormControl>
+            </Box>
+        </div>
         
 
         {

@@ -45,7 +45,7 @@ function Home() {
     return (
 
         <div>
-            <Games hesAccaunt={hesAccaunt} />
+            <Games/>
         </div>
     );
 
