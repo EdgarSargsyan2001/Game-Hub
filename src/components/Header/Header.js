@@ -42,6 +42,16 @@ function Header() {
     <div className="header-container">
       <div className="logo">
 
+        <Link to="/">
+          <SportsEsportsIcon onClick={()=>setListShow(false)} sx={{ fontSize: 50, color: "#1976D2" }} />
+        </Link>
+
+        <Link to="/">
+          <Typography  className="GameHubText" variant="h4" color="primary">
+            GameHub
+          </Typography>
+        </Link>
+        
         {
           hesAccaunt &&
           <div className="buttonMore">
@@ -74,15 +84,6 @@ function Header() {
           </div>
         }
 
-        <Link to="/">
-          <SportsEsportsIcon onClick={()=>setListShow(false)} sx={{ fontSize: 50, color: "#1976D2" }} />
-        </Link>
-
-        <Link to="/">
-          <Typography  className="GameHubText" variant="h4" color="primary">
-            GameHub
-          </Typography>
-        </Link>
 
       </div>
 
