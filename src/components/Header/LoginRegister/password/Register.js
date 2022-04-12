@@ -1,7 +1,9 @@
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import {useNavigate} from 'react-router-dom';
-import './register.css'
+import { auth } from '../../../../firebase'
 import From from '../form/Form'
+
+import './register.css'
 
 
 
@@ -10,12 +12,23 @@ function Register() {
     const navigate = useNavigate();
     
 
-    function handleRegister (emailRef,passwordRef,email,password){
+    function handleRegister (
+        email,
+        password,
+        setEmailError,
+        setPasswordError,
+        setEmailErrorText,
+        setPasswordErrorText
+        ){
 
         
-        if(email === "" || password === ""  ) return
+        if(email === "" || password === ""  ) {
 
-        const auth = getAuth();
+            if(password === "") setPasswordError(true) 
+            if(email === "") setEmailError(true)
+            return
+        }
+
         createUserWithEmailAndPassword(auth, email, password)
             .then(resp =>{
                 // console.log('sd', resp)
@@ -24,24 +37,26 @@ function Register() {
             .catch(err => {
                 switch(err.code){
                     case "auth/email-already-in-use":
-                        emailRef.current.setCustomValidity("email-already-in-use")
-                        break;
-
                     case "auth/invalid-email":
-                        emailRef.current.setCustomValidity("invalid-email")
+                        setEmailError(true)
+                        setEmailErrorText("invalid-email")
                         break;
                 
                     case "auth/weak-password":
-                        passwordRef.current.setCustomValidity("Password should be at least 6 characters")
+                        setPasswordError(true)
+                        setPasswordErrorText("Password should be at least 6 characters")
                         break;
 
                     case "auth/network-request-failed":
-                        passwordRef.current.setCustomValidity("network-request-failed")
-                        break;
-                        
                     case "auth/too-many-requests":
-                        passwordRef.current.setCustomValidity("weak-password")
+                        setPasswordError(true)
+                        setPasswordErrorText("weak-password")
                         break;
+
+                    default :
+                        setEmailError(true)
+                        setEmailError("error")
+                        break;    
                 }
         })
 

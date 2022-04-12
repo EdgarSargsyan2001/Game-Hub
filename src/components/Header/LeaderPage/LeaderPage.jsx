@@ -1,73 +1,95 @@
-// import { getAuth } from "firebase/auth";
-// import { doc, getFirestore, setDoc ,collection, getDocs} from "firebase/firestore"; 
-// import { useEffect, useState } from "react";
+import { useEffect, useState,useContext } from "react";
+import { hasAccaunt } from '../../../App.js'
+
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import SingleLeaderGame from './singleLeaderGame'
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
+import Box from '@mui/material/Box';
+
 import './LeaderPage.css'
 
-function LeaderPage({hesAccaunt}) {
-
-    // const [value,setValue] = useState('')
-    // const [objALl,SetObjALl] = useState('')
-    // const [accauntData,setAccauntData] = useState('')
-    // const auth = getAuth();
-    // const db = getFirestore()
+function LeaderPage({}) {
     
-    // const obj={
-    //     ii:"hgf",
-    //     value:+value 
-    // }
+    const [alluserData,setalluserData] = useState( JSON.parse( localStorage.getItem('AllUserData')) )
+    const [GameName, setGameName] = useState("RockPaperScissors");
+    const {hesAccaunt} = useContext(hasAccaunt);
 
-    // function hendleclick(){
-
-    //     setDoc(doc(db, "users", auth?.currentUser?.uid), {
-    //         ...accauntData,
-            
-    //         game2:{...obj},
-            
-    //     });
-
-    // }
-
-
-    // useEffect(async()=>{
-    //     if(hesAccaunt){
-
-    //         let arr=[]
-    //         const querySnapshot = await getDocs(collection(db, "users"));
-    //         //All Data
-    //         querySnapshot.forEach((doc) => {
-    //             arr.push({...doc.data(),id:doc.id,email:hesAccaunt.email})
-               
-    //         })
-    //         SetObjALl(arr)
-
-    //         //AccauntData
-    //         querySnapshot.forEach((doc) => {
-    //             if(doc.id === hesAccaunt.uid){
-    //                 setAccauntData({...doc.data(),id:doc.id,email:hesAccaunt.email})
-    //             }
-               
-    //         })
-
-
-    //     }else{
-            
-    //         setAccauntData('')
-    //         SetObjALl('')
-    //     }
-        
-    // },[hesAccaunt])
+    //DataWiner
+    const [RockPaperScissorsWin,setRockPaperScissorsWin] = useState(undefined)
+    const [snakeAreaWin,setSnakeAreaWin] = useState(undefined)
     
-    
-    // console.log(objALl)
-    // console.log(accauntData)
+
+
+    useEffect(()=>{
+
+        if(alluserData && hesAccaunt){
+           
+            setRockPaperScissorsWin(alluserData.filter(el=>el.RockPaperScissors)?.sort((a,b) => b?.RockPaperScissors?.scorre - a?.RockPaperScissors?.scorre))
+            setSnakeAreaWin(alluserData.filter(el=>el.SnakeArea)?.sort((a,b) => b?.SnakeArea?.scorre - a?.SnakeArea?.scorre))
+
+        }
+
+
+    },[alluserData,hesAccaunt])
+
     
     return (
+        hesAccaunt &&
         <div className="LeaderPage">
-            LeaderPage
-
           
+          <Box sx={{ minWidth: 150,margin:5}}>
+
+            <FormControl fullWidth>
+                
+                <InputLabel id="demo-simple-select-label">GameName</InputLabel>
+                <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    value={GameName}
+                    label="GameName"
+                    onChange={(e)=>setGameName(e.target.value)}
+                >
+
+                    <MenuItem value='RockPaperScissors'>
+                        RockPaperScissors 
+                    </MenuItem>
+                            
+
+                    <MenuItem  value='snake'>
+                        snake
+                    </MenuItem>
+                        
+                            
+                </Select>
+            </FormControl>
+        </Box>
+        
+
+        {
+            GameName === "RockPaperScissors" &&
+                <SingleLeaderGame
+                    GAMENAME='RockPaperScissors'
+                    DataWiner={RockPaperScissorsWin}
+                    title="RockPaperScissors"
+                    imgSrc='./Images/rockAndScissors.jpeg'
+                />
+                
+        }
+        {
+            GameName === "snake" &&
+                <SingleLeaderGame
+                    GAMENAME="SnakeArea"
+                    DataWiner={snakeAreaWin}
+                    title="snake"
+                    imgSrc='./Images/snake.png'
+                />
+        }
+
+            
         </div> 
-         
+
     );
 }
 

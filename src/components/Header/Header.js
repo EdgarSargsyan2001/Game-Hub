@@ -1,27 +1,34 @@
+import { Link, useNavigate } from "react-router-dom";
+import { signOut } from "firebase/auth";
 import { Typography } from "@mui/material";
+import { hasAccaunt } from '../../App'
+import { useContext } from "react";
+import { auth } from '../../firebase'
+
+
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
 import Button from "@mui/material/Button";
-import { Link } from "react-router-dom";
-import { signOut,getAuth } from "firebase/auth";
 
 import "./Header.css";
 
-function Header({hesAccaunt,setHasAccount,setAccauntData}) {
+function Header() {
   
-  
+
+  const {hesAccaunt,setHasAccount} = useContext(hasAccaunt);
+  const navigate = useNavigate();
+
+
   function handleSingOut(){
-
-    const auth = getAuth();
     
-      setHasAccount(false)
-      signOut(auth)
-      setAccauntData('')
-      
-  
+    signOut(auth)
+
+    navigate('/')
+    setHasAccount(false)
+
+    localStorage.removeItem('AccauntData')
+    localStorage.removeItem('AllUserData')
+    
   }
-
-
-  // console.log(hesAccaunt)
 
   return (
     <div className="header-container">
@@ -32,44 +39,47 @@ function Header({hesAccaunt,setHasAccount,setAccauntData}) {
         </Link>
 
         <Link to="/">
-          <Typography variant="h4" color="primary">
+          <Typography className="GameHubText" variant="h4" color="primary">
             GameHub
           </Typography>
         </Link>
 
       </div>
+
       {
-        hesAccaunt ? (
+        hesAccaunt &&
+          <div className="leaderpageHeader">
           <Link to="/leaderpage">
-            <Typography variant="h6" color="primary">
-              LeaderPage
+            <Typography variant="h4" color="primary" className="leaderpageText">
+              LeaderPage<p className="Accauntext">{hesAccaunt.email}</p>
             </Typography>
           </Link>
-          
-        ) : ''
-        
+          </div>
       }
 
       <div>
         
         {
           hesAccaunt ?
-          
+            <>
             <Button 
               onClick={handleSingOut} 
               variant="contained"
-              
+              className="buttonSize"
+
             >Log Out</Button>
+          
+            </>
 
           :
 
           <>
             <Link to="/login">
-              <Button variant="contained">Login</Button>
+              <Button variant="contained" className="buttonSize">Login</Button>
             </Link>
 
             <Link to="/register">
-              <Button variant="outlined">Register</Button>
+              <Button variant="outlined" className="buttonSize">Register</Button>
             </Link>
           </>
           

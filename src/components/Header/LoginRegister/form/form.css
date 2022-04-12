@@ -5,9 +5,10 @@
     width: 250px;
     height: 350px;
     padding: 15px;
-    border: 2px solid rgb(29, 109, 207);
-    background-color: black;
-    box-shadow: 0 0px 20px 5px rgb(255, 255, 255), 0 0px 30px 2px rgba(255, 255, 255, 0.801);
+    background: rgba(0, 0, 0, 0.622);
+    background-position-x:-100px;
+    /* border: 2px solid #1976D2FF; */
+    box-shadow: 0 0px 20px 5px rgba(25, 118, 210, 0.851);
 }
 .form{
     display: flex;
@@ -17,11 +18,15 @@
 
 }
 .emailInput,.passwordInput{
-    margin-bottom: 40px;
-    padding: 10px;
+    border-radius: 8px;
+    background: rgb(255, 255, 255) !important;
+    color: red !important;
+    margin-bottom: 40px !important;
+    padding: 1px !important;
 }
 
-.button{
+.buttonLogReg{
+    width: 245px !important;
     padding: 10px;
     cursor: pointer;
     color: white;

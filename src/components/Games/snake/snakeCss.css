@@ -1,0 +1,119 @@
+
+.snakeArea{
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.area1{
+  margin:15px;
+}
+.area {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 8px;
+  border: 3px solid blue;
+  width: 21rem;
+  background-color: chartreuse;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.cell{
+  width: 2rem;
+  height:2rem;
+  border: 1px solid rgb(60, 163, 49);
+}
+.food{
+  /* background-color: yellow; */
+  background-image: url("./apple/apple.png");
+  background-size: cover;
+}
+.snake{
+  background-color: red;
+  border: 1px solid red;
+  margin: 0;
+  border-radius: 8px;
+}
+.row{
+  display: flex;
+}
+.score1{
+  width: 20rem;
+  border-bottom: 4px solid white;
+  border-radius: 3px;
+  color: black;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+.score2{
+  text-align: center;
+  color: black;
+  font-size: 17px;
+  font-weight: bold;
+}
+.butonRest{
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 15px;
+}
+.buttonSnake{
+  width: 100%;
+  padding: 15px;
+  cursor: pointer;
+  margin: 4px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  color: green;
+  margin-bottom: 1%;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+.ButtonManage{
+  display: grid;
+  grid-template-columns: 80px 0px 80px;
+  grid-template-rows: 80px 0px 80px;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+}
+.ArrowLeftBtn,
+.ArrowUpBtn,
+.ArrowDownBtn,
+.ArrowRightBtn{
+
+  background-size: contain;
+  background-position: auto;
+  border-radius: 50px !important;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  padding: 15px;
+
+}
+.ArrowLeftBtn{
+  background-image: url('https://i.ibb.co/7rsSpDh/left.png');
+}
+.ArrowUpBtn{
+  background-image: url('https://i.ibb.co/YbFkfNQ/up.png');
+  grid-column: 1/4;
+}
+.ArrowDownBtn{ 
+  background-image: url('https://i.ibb.co/9qWff2c/down.png');
+  grid-column: 1/4;
+}
+.ArrowRightBtn{
+background-image: url('https://i.ibb.co/FbWDzG1/right.png');
+}
+
+@media screen and (min-width:900px) {
+  .ButtonManage{
+    display: none;
+  }
+  
+}
