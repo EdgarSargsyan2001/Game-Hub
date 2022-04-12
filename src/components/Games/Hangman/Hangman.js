@@ -18,7 +18,7 @@ function Hangman({ hesAccaunt, accauntData,db }) {
   const [userAnswer, setUserAnswer] = useState("");
   const [userScorre, setUserScorre] = useState(accauntData?.Hangman?.scorre ? accauntData.Hangman.scorre : 0);
   const [isWinner,setIsWinner] = useState(false);
-  
+
   
   const images = [step0, step1, step2, step3, step4, step5, step6];
   const MAXWRONGANSWER = 5;
@@ -123,7 +123,7 @@ function Hangman({ hesAccaunt, accauntData,db }) {
       <h4 className="score">Scorre:{userScorre}</h4>
 
       <div >
-        {<img className="img" src={images[wrongAnswerCount]}></img>}
+        <img className="img" src={images[wrongAnswerCount]}></img>
       </div>
 
       <div className="answer">
