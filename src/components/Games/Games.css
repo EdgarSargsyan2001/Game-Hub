@@ -1,8 +1,14 @@
+.Game{
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .cardsSection{
     width: 80%;
     display: flex;
     justify-content: space-evenly;
-    /* background-color: #a6c5eb; */
     background-size: cover;
     background-attachment:fixed ;
     background-repeat: no-repeat;
@@ -13,35 +19,21 @@
     height: 74vh;
     margin-top: 55px;
     opacity: 0.995;
+    box-shadow: -19px 0px 15px -5px rgb(83 204 234), 19px 0px 16px -5px rgb(237 145 237);;
     background-image: url('https://static.vecteezy.com/system/resources/previews/002/767/399/large_2x/abstract-neon-dark-gaming-background-free-vector.jpg');
     background-repeat: no-repeat;
     background-position:center;
     background-size:cover ;
 }
-.Game{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.leaderpageDiv{
-    border-radius: 8px;
-    margin-top: 15px;
-    padding: 15px;
-    background-color: rgb(154, 197, 230);
-}
 .leaderpageText{
     text-align: center;
-    /* font-size: 18px !important; */
 }
 .Accauntext{
     text-align: center;
 }
 .cards{
-    /* background:rgba(245, 222, 179, 0.519) ; */
-    /* border: 2px solid #0e0f12; */
-    /* border-radius: 15px; */
+
     width: 100%;
     display: flex;
     justify-content: center;
@@ -51,10 +43,6 @@
 }
 .card-item{
     width: 30%;
-    /* height: 250px; */
-    /* background-color: rgba(36, 36, 36); */
-    /* border: 1px solid red; */
-    
     border-radius: 5px ;
     text-align: center;
     cursor: pointer;
@@ -74,7 +62,7 @@
 }
 
 :hover.card-item{
-    box-shadow: 0 0px 20px 5px rgb(255 255 255), 0 0px 30px 2px rgb(255 255 255 / 80%);
+    box-shadow: 0 0px 20px 5px rgb(47, 195, 221), 0 0px 30px 2px rgb(84, 208, 230);
     
 }
 .card-image{
@@ -159,6 +147,10 @@
     }
   }
   @media screen and (max-width: 640px) {
+    :hover.card-item{
+        box-shadow: 0 0px 20px 5px rgba(216, 130, 219, 0.9), 0 0px 30px 2px rgba(212, 118, 215, 0.9);
+        
+    }
     .gameheader{
         height: 200px;
         

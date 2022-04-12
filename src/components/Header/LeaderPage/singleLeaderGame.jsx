@@ -42,7 +42,7 @@ function SingleLeaderGame({DataWiner, title, imgSrc, GAMENAME}){
 
         <CardHeader 
 
-            sx={{textAlign:"center",color:"red"}}
+            sx={{textAlign:"center",color:'#FFF'}}
             title={title}
         
         />
