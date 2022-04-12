@@ -43,7 +43,7 @@ function Header() {
       <div className="logo">
 
         <Link to="/">
-          <SportsEsportsIcon onClick={()=>setListShow(false)} sx={{ fontSize: 50, color: "#1976D2" }} />
+          <SportsEsportsIcon onClick={()=>setListShow(false)} color="primary" sx={{ fontSize: 50 }} />
         </Link>
 
         <Link to="/">
