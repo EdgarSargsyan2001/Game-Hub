@@ -1,0 +1,89 @@
+.container{
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.308), 0 0px 30px 2px rgba(0, 0, 0, 0.397);
+    text-align: center;
+    align-items: center;
+    background-color: rgb(213, 240, 255);
+    font-family: sans-serif;
+}
+.hangmanName{
+    color: rgb(96, 114, 124);
+    font-size: 35px;
+}
+.resetBtn{
+    width: 80px;
+    height: 40px;
+    align-items: center;
+    background-color: rgb(96, 114, 124);
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.score{
+    color:rgb(96,114,124);
+    font-size: 25px;
+}
+.img{
+    width: 200px;
+    height: 250px;
+    background-size: cover;
+    
+}
+.letterBtn{
+    width: 30px;
+    height: 30px;
+    border-radius: 2px;
+    background-color: rgb(130, 149, 160);
+    align-items: center;
+    margin:2px;
+}
+
+
+
+.gameStatus{
+    width: 50vw;
+    margin:10px;
+}
+.answer{
+    width:50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.loseGame{
+    color:red;
+}
+
+.winGame{
+    color:green;
+}
+
+@media screen and (max-width:750px) {
+    .container{
+        width: 95vw;
+        height: 100vh;
+    }
+    .hangmanName{
+        font-size: 20px;
+      }
+    .score{
+        font-size: 15px;
+    }
+  }
+  
+  @media screen and (max-width:500px) {
+    
+    .resetBtn{
+      width: 70px;
+      height: 40px;
+    }
+    .letterBtn{
+        width: 20px;
+        height: 20px;
+        margin:1.5px;
+    }
+  }
