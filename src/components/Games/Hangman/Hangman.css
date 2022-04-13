@@ -1,16 +1,16 @@
 .container{
     width: 80vw;
-    height: 100vh;
+    height: 500px;
     display: flex;
     flex-direction: column;
     box-shadow: 0 0px 20px 5px rgba(0, 0, 0, 0.308), 0 0px 30px 2px rgba(0, 0, 0, 0.397);
     text-align: center;
     align-items: center;
-    background-color: rgb(213, 240, 255);
+    background-color: #444444FF;
     font-family: sans-serif;
 }
 .hangmanName{
-    color: rgb(96, 114, 124);
+    color: rgb(255, 255, 255);
     font-size: 35px;
 }
 .resetBtn{
@@ -20,23 +20,25 @@
     background-color: rgb(96, 114, 124);
     font-size: 20px;
     border-radius: 5px;
+    color: white;
     cursor: pointer;
     margin-bottom: 20px;
 }
 .score{
-    color:rgb(96,114,124);
+    color:rgb(255, 255, 255);
     font-size: 25px;
 }
 .img{
-    width: 200px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
     background-size: cover;
     
 }
 .letterBtn{
     width: 30px;
     height: 30px;
-    border-radius: 2px;
+    cursor: pointer;
+    border-radius: 4px;
     background-color: rgb(130, 149, 160);
     align-items: center;
     margin:2px;
@@ -62,7 +64,7 @@
     color:green;
 }
 
-@media screen and (max-width:750px) {
+/* @media screen and (max-width:750px) {
     .container{
         width: 95vw;
         height: 100vh;
@@ -73,17 +75,17 @@
     .score{
         font-size: 15px;
     }
-  }
-  
+  } */
+ 
   @media screen and (max-width:500px) {
     
-    .resetBtn{
-      width: 70px;
-      height: 40px;
+    .container{
+      height: 550px;
     }
     .letterBtn{
         width: 20px;
         height: 20px;
-        margin:1.5px;
     }
-  }
+    
+
+  } 

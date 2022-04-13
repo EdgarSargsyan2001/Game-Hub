@@ -83,6 +83,7 @@ function SingleLeaderGame({DataWiner, title, imgSrc, GAMENAME}){
                 expand={expanded}
                 onClick={()=>setExpanded(!expanded)}
                 aria-expanded={expanded}
+                sx={{color:'white'}}
                 aria-label="show more"
 
             > <ExpandMoreIcon /></ExpandMore>

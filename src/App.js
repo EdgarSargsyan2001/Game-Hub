@@ -1,6 +1,6 @@
 // Lilit
-import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState, createContext } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 import { Route, Routes } from "react-router-dom";
 import { auth } from "./firebase";
 
@@ -15,16 +15,25 @@ import "./App.css";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./Theme/theme";
 
+
 export const hasAccaunt = createContext();
 
 function App() {
+
+
   const [hasUser, setHasUser] = useState(false);
 
   useEffect(() => {
+
     onAuthStateChanged(auth, (user) =>
+
       user ? setHasUser(user) : setHasUser(user)
+
     );
+
   }, []);
+
+
 
   return (
     <div className="App">
