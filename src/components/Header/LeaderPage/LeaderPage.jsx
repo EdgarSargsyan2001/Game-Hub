@@ -1,6 +1,7 @@
 import { useEffect, useState,useContext } from "react";
 import { hasAccaunt } from '../../../App.js'
 
+
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import SingleLeaderGame from './singleLeaderGame'
@@ -19,6 +20,7 @@ function LeaderPage({}) {
     //DataWiner
     const [RockPaperScissorsWin,setRockPaperScissorsWin] = useState(undefined)
     const [snakeAreaWin,setSnakeAreaWin] = useState(undefined)
+    const [hangmanWin,setHangmanWin] = useState(undefined)
     
 
 
@@ -28,7 +30,7 @@ function LeaderPage({}) {
            
             setRockPaperScissorsWin(alluserData.filter(el=>el.RockPaperScissors)?.sort((a,b) => b?.RockPaperScissors?.scorre - a?.RockPaperScissors?.scorre))
             setSnakeAreaWin(alluserData.filter(el=>el.SnakeArea)?.sort((a,b) => b?.SnakeArea?.scorre - a?.SnakeArea?.scorre))
-
+            setHangmanWin(alluserData.filter(el=>el.Hangman)?.sort((a,b) => b?.Hangman?.scorre - a?.Hangman?.scorre))
         }
 
 
@@ -60,6 +62,10 @@ function LeaderPage({}) {
                         <MenuItem  value='snake'>
                             snake
                         </MenuItem>
+
+                        <MenuItem  value='hangman'>
+                            hangman
+                        </MenuItem>
                             
                                 
                     </Select>
@@ -85,6 +91,15 @@ function LeaderPage({}) {
                     DataWiner={snakeAreaWin}
                     title="snake"
                     imgSrc='./Images/snake.png'
+                />
+        }
+        {
+            GameName === "hangman" &&
+                <SingleLeaderGame
+                    GAMENAME="Hangman"
+                    DataWiner={hangmanWin}
+                    title="Hangman"
+                    imgSrc='./Images/hangman.png'
                 />
         }
 

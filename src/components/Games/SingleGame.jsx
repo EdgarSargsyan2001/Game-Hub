@@ -23,7 +23,7 @@ function SingleGame() {
     case "hangman":
       return (
         
-        <div className="div-height">
+        <div className="div-height hangman" >
           <Hangman accauntData={accauntData} hesAccaunt={hesAccaunt} db={db}/>
         </div>
         
