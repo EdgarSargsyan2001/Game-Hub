@@ -8,6 +8,12 @@ let footballers = [
   "SUAREZ",
   "PIQUE",
   "BENZEMA",
+  "JORGINHO",
+  "KAKA",
+  "MKHITARYAN",
+  "MORATA",
+  "PEDRI",
+  "PUYOL",
 ];
 function randomWord() {
     const lengtOfArray = footballers.length;

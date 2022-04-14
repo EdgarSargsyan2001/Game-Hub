@@ -119,11 +119,12 @@ function Hangman({ hesAccaunt, accauntData,db }) {
     <div className="container">
 
       <h1 className="hangmanName">HANGMAN</h1>
+      <h3>Guess the footballers!</h3>
 
-      <h4 className="score">Scorre:{userScorre}</h4>
 
-      <div >
+      <div className="imgContainer">
         <img className="img" src={images[wrongAnswerCount]}></img>
+        <h4 className="score">Scorre:{userScorre}</h4>
       </div>
 
       <div className="answer">
