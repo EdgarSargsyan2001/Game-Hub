@@ -82,6 +82,7 @@
   
   
   .Turn-Result{
+    font-size: 20px;
     color: rgb(237, 236, 243);
   }
   .Final-Result{
@@ -106,7 +107,6 @@
   }
   
   @media screen and (max-width:450px) {
-    
     .heading{
       font-size: 25px;
     }
@@ -122,7 +122,10 @@
     {
       width: 100px;
     }
-   
+    .No-one-win,.winner-User,.winner-Computer{
+      font-size: 20px;
+    }
+    
     .button{
       width: 100px;
     }

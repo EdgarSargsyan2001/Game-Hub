@@ -74,6 +74,14 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
             
          }
     }
+    const restButtonClick = () =>{
+
+        setScore(0)
+        setSnake([[1,1]])
+        snakeMoveSpeed=false
+        qayl = ""
+
+    }
     
     useEffect(()=>{
 
@@ -141,7 +149,9 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
 
     return(
     <div className="area1">
-        <div className="score2">Record Score: {backData}
+        <div className="score2">
+            <button className="restButtonClick" onClick={restButtonClick}>back</button>
+            Record Score: {backData}
         </div>
        <div className="area">
             

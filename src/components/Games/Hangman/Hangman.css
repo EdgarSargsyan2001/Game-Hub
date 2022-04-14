@@ -88,8 +88,9 @@
   @media screen and (max-width:500px) {
     
     .container{
-        height: 600px;
-        width: 500px;
+        transform: scale(0.8);
+        width: 90vw;
+        height: 650px;
     }
     .letterBtn{
         width: 25px;
@@ -103,6 +104,9 @@
     }
     .imgContainer{
         margin-top:20px;
+    }
+    .score{
+        font-size: 20px;
     }
    
 

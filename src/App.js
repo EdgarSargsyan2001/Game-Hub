@@ -2,7 +2,8 @@
 import { useEffect, useState, createContext } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { Route, Routes } from "react-router-dom";
-import { auth } from "./firebase";
+import { ThemeProvider } from "@emotion/react";
+import { auth } from "./firebase/firebase";
 
 import Register from "./components/Header/LoginRegister/password/Register";
 import Login from "./components/Header/LoginRegister/login/Login";
@@ -10,10 +11,9 @@ import LeaderPage from "./components/Header/LeaderPage/LeaderPage";
 import SingleGame from "./components/Games/SingleGame";
 import Layout from "./components/Layaouts/Layouts";
 import Home from "./components/Home";
+import theme from "./Theme/theme";
 
 import "./App.css";
-import { ThemeProvider } from "@emotion/react";
-import theme from "./Theme/theme";
 
 
 export const hasAccaunt = createContext();

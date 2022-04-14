@@ -5,7 +5,7 @@ import { hasAccaunt } from '../../App'
 import { useContext, useState } from "react";
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import CloseIcon from '@mui/icons-material/Close';
-import { auth } from '../../firebase'
+import { auth } from '../../firebase/firebase'
 
 
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports";
