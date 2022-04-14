@@ -96,6 +96,11 @@
   padding: 15px;
 
 }
+.restButtonClick{
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+}
 .ArrowLeftBtn{
   background-image: url('https://i.ibb.co/7rsSpDh/left.png');
 }

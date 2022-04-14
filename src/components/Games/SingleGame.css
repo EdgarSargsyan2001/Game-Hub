@@ -23,3 +23,8 @@
         height: 600px;
     }
 }
+@media screen and (max-width:600px){
+    .div-height{
+        height: 80vh;
+    }
+}

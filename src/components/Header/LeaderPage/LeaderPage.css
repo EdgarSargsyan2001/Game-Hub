@@ -55,6 +55,9 @@
 }
 
 @media screen and (max-width:400px){
+    .LeaderPage{
+        min-height: 80vh;
+    }
     .card{
         padding: 5px !important;
         margin: 10px !important;
