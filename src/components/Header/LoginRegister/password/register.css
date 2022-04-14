@@ -1,0 +1,14 @@
+.register{
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8 );
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (max-width:600px){
+    .register{
+        height: 80vh;
+    }
+}
