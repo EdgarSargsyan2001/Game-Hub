@@ -24,10 +24,10 @@ const gameCard = [
         alt:"rockAndScissors"
     },
     {
-        src: "./Images/pazl.jpeg",
-        gameName: 'puzzle',
+        src: "./Images/TicTacToe.jpeg",
+        gameName: 'TicTacToe',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
-        alt:"pazl"
+        alt:"TicTacToe"
     },
     {
         src: "./Images/zar.jpeg",

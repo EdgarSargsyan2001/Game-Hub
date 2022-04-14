@@ -17,6 +17,9 @@
 .hangman{
     height: 90vh;
 }
+.TicTacToe{
+    height: 600px;
+}
 
 @media screen and (max-width:900px){
     .snakeGame{
