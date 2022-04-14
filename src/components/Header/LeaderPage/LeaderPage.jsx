@@ -21,6 +21,7 @@ function LeaderPage({}) {
     const [RockPaperScissorsWin,setRockPaperScissorsWin] = useState(undefined)
     const [snakeAreaWin,setSnakeAreaWin] = useState(undefined)
     const [hangmanWin,setHangmanWin] = useState(undefined)
+    const [TicTacToe,setTicTacToe] = useState(undefined)
     
 
 
@@ -31,11 +32,11 @@ function LeaderPage({}) {
             setRockPaperScissorsWin(alluserData.filter(el=>el.RockPaperScissors)?.sort((a,b) => b?.RockPaperScissors?.scorre - a?.RockPaperScissors?.scorre))
             setSnakeAreaWin(alluserData.filter(el=>el.SnakeArea)?.sort((a,b) => b?.SnakeArea?.scorre - a?.SnakeArea?.scorre))
             setHangmanWin(alluserData.filter(el=>el.Hangman)?.sort((a,b) => b?.Hangman?.scorre - a?.Hangman?.scorre))
+            setTicTacToe(alluserData.filter(el=>el.TicTacToe)?.sort((a,b) => b?.TicTacToe?.scorre - a?.TicTacToe?.scorre))
         }
 
 
     },[alluserData,hesAccaunt])
-
     
     return (
         hesAccaunt &&
@@ -57,14 +58,18 @@ function LeaderPage({}) {
                         <MenuItem value='RockPaperScissors'>
                             RockPaperScissors 
                         </MenuItem>
-                                
+                        
 
                         <MenuItem  value='Snake'>
-                            snake
+                            Snake
                         </MenuItem>
 
                         <MenuItem  value='HangMan'>
-                            hangman
+                            Hangman
+                        </MenuItem>
+
+                        <MenuItem  value='TicTacToe'>
+                            TicTacToe
                         </MenuItem>
                             
                                 
@@ -102,7 +107,15 @@ function LeaderPage({}) {
                     imgSrc='./Images/hangMan.png'
                 />
         }
-
+        {
+            GameName === "TicTacToe" &&
+                <SingleLeaderGame
+                    GAMENAME="TicTacToe"
+                    DataWiner={TicTacToe}
+                    title="TicTacToe"
+                    imgSrc='./Images/TicTacToe.jpeg'
+            />
+        }
             
         </div> 
 

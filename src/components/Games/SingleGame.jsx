@@ -3,7 +3,7 @@ import { getFirestore } from "firebase/firestore";
 import { useContext } from "react";
 
 import RockPaperScissors from "./RockPaperScissors/RockPaperScissors";
-import TicTacToe from "./TicTacToe/TicTacToe";
+import TicTacToe from "./TicTacToe/TicTacToe.jsx";
 import SnakeArea from "./snake/SnakeArea";
 import Hangman from "./Hangman/Hangman";
 import {hasAccaunt} from '../../App'
@@ -43,8 +43,8 @@ function SingleGame() {
       );
     case "tictactoe":
       return (
-        <div className="div-height">
-          <TicTacToe />
+        <div className="div-height TicTacToe">
+          <TicTacToe accauntData={accauntData} hesAccaunt={hesAccaunt} db={db} />
         </div>
       );
       default:
