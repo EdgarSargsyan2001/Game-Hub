@@ -85,7 +85,7 @@ function LeaderPage({}) {
                 
         }
         {
-            GameName === "snake" &&
+            GameName === "Snake" &&
                 <SingleLeaderGame
                     GAMENAME="SnakeArea"
                     DataWiner={snakeAreaWin}
@@ -94,12 +94,12 @@ function LeaderPage({}) {
                 />
         }
         {
-            GameName === "hangman" &&
+            GameName === "HangMan" &&
                 <SingleLeaderGame
                     GAMENAME="Hangman"
                     DataWiner={hangmanWin}
                     title="Hangman"
-                    imgSrc='./Images/hangman.png'
+                    imgSrc='./Images/hangMan.png'
                 />
         }
 
