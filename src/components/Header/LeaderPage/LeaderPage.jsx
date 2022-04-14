@@ -59,11 +59,11 @@ function LeaderPage({}) {
                         </MenuItem>
                                 
 
-                        <MenuItem  value='snake'>
+                        <MenuItem  value='Snake'>
                             snake
                         </MenuItem>
 
-                        <MenuItem  value='hangman'>
+                        <MenuItem  value='HangMan'>
                             hangman
                         </MenuItem>
                             
