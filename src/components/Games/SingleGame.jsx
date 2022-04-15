@@ -9,6 +9,7 @@ import Hangman from "./Hangman/Hangman";
 import {hasAccaunt} from '../../App'
 
 import './SingleGame.css'
+import PicturesGame from './picturesGame/PicturesGame';
 
 
 function SingleGame() {
@@ -47,6 +48,13 @@ function SingleGame() {
           <TicTacToe accauntData={accauntData} hesAccaunt={hesAccaunt} db={db} />
         </div>
       );
+      case "picturesgame":
+        
+        return (
+          <div  className="pictures">
+            <PicturesGame accauntData={accauntData} hesAccaunt={hesAccaunt} db={db} />
+          </div>
+        );
       default:
         return(
           <div className="div-height">There isn't game</div>

@@ -1,0 +1,172 @@
+         /* ///////////////////////////    Header */
+
+.header-pictur {
+  padding: 20px;
+  color: rgb(60, 33, 122);
+
+  background: radial-gradient(rgba(228, 109, 19, 0.8), rgba(0, 255, 255, 0.589));
+  text-align: center;
+  font-family: "Russo One", sans-serif;
+}
+
+.sub-header {
+  padding: 5px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 800;
+  justify-content: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.reshuffle-button {
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+  background-color: rgb(184, 184, 184);
+  margin-bottom: 8px;
+  width: 30px;
+  height: 30px
+}
+.reshuffle-button:hover {
+  color: rgb(239, 237, 245);
+  background-color: rgb(60, 33, 122);
+  font-weight: 800;
+}
+.bold {
+  text-transform: uppercase;
+}
+
+
+    /* ///////////////////////////////////////    Finish */
+
+.MuiDialog-paperWidthSm {
+  max-width: null !important;
+  width: 80% !important;
+  /* background-color: rgb(142, 208, 212) !important; */
+  background: radial-gradient(
+    rgb(136, 255, 229) 60%,
+    rgba(243, 243, 56, 0.664)
+  );
+
+  border-radius: 30px !important;
+  text-align: center;
+}
+h2 {
+  color: rgb(255, 0, 221) !important;
+  margin-top: 15px;
+}
+.MuiDialogContentText-root {
+  font-size: 20px !important;
+}
+.MuiTypography-h6 {
+  font-size: 25px !important;
+  color: orangered !important;
+  font-weight: 500;
+}
+.MuiDialogActions-root {
+  display: unset !important;
+}
+.MuiButton-label:hover {
+  color: rgb(255, 0, 221) !important;
+}
+
+
+/* ////////////////////////////////////   Card */
+
+
+.card-item-picture {
+    width: 100%;
+    height: 200px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px 4px #f55004e5;
+    transition: 0.5s;
+    transform-style: preserve-3d;
+    position: relative;
+    cursor: pointer;
+    margin: 10px 0px 20px 0px;
+  }
+  
+  .img-card {
+    width: 100%;
+    height: 100%;
+    box-shadow: 2px 2px 4px 4px #f54804e5;
+    border-radius: 4px;
+  }
+  .card-face {
+    backface-visibility: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  .card-back-face {
+    transform: rotateY(180deg);
+    width: 100%;
+    height: 100%;
+  }
+  .is-flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .is-inactive {
+    /* visibility: hidden; */
+    opacity: 0;
+  }
+  
+
+
+  /* ////////////////////////////////  all */
+
+
+
+  .all-div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .inputCard{
+    width: 100px;
+    margin-right: 20px;
+  }
+
+  @media screen and (max-width:400px){
+   
+  .inputCard {
+    width: 74px;
+}
+}
+@media screen and (max-width:700px){
+  .card-item-picture {
+    height: 96px;
+    margin: 0px 0px 11px 0px;
+}
+.inputCard {
+  width: 74px;
+}
+}
+@media screen and (max-width:900px){
+  .card-item-picture {
+    height: 126px;
+    margin: 4px 0px 11px 0px;
+}
+.inputCard {
+  width: 80px;
+}
+}
+@media screen and (max-width:1200px){
+  .card-item-picture {
+    height: 156px;
+    margin: 7px 0px 11px 0px;
+}
+.inputCard {
+  width: 100px;
+}
+}
+@media screen and (max-width:1700px){
+  .card-item-picture {
+    height: 156px;
+    margin: 7px 0px 11px 0px;
+}
+.inputCard {
+  width: 100px;
+}
+}
