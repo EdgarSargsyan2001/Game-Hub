@@ -3,14 +3,14 @@ import { getFirestore } from "firebase/firestore";
 import { useContext } from "react";
 
 import RockPaperScissors from "./RockPaperScissors/RockPaperScissors";
+import PicturesGame from './picturesGame/PicturesGame';
 import TicTacToe from "./TicTacToe/TicTacToe.jsx";
 import SnakeArea from "./snake/SnakeArea";
 import Hangman from "./Hangman/Hangman";
-import Game2048 from './aa/Game2048'
+import Game2048 from './game2048/Game2048'
 import {hasAccaunt} from '../../App'
 
 import './SingleGame.css'
-import PicturesGame from './picturesGame/PicturesGame';
 
 
 function SingleGame() {

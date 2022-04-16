@@ -22,10 +22,10 @@
   justify-content: center;
  
 }
-.cell{
-  width: 2rem;
-  height:2rem;
-  border: 1px solid rgb(60, 163, 49);
+.cellA{
+  width: 2rem !important;
+  height:2rem !important;
+  border: 1px solid rgb(60, 163, 49) !important;
 }
 .food{
   /* background-color: yellow; */
@@ -38,8 +38,8 @@
   margin: 0;
   border-radius: 8px;
 }
-.row{
-  display: flex;
+.rowSnak{
+  display: flex !important;
 }
 .score1{
   width: 20rem;
