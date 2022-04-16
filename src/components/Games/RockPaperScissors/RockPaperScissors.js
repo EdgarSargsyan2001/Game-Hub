@@ -122,7 +122,7 @@ if(flag){
       </h1>
         <h4 className='heading-Paper'>AllWin:{DataGame.scorre}</h4>
 
-      <div className='score'>
+      <div className='scoreRcok'>
         <h2 className='winner-User'>User։{userPoints}</h2>
 
         <h1>

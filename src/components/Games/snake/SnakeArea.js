@@ -157,14 +157,14 @@ function SnakeArea ({hesAccaunt,accauntData,db}){
             
             {cellsValue.map((row,indexR)=>{
                 return(
-                <div key={indexR} className="row">
+                <div key={indexR} className="rowSnak">
                     {row.map((cell,indexC)=>{
                         let type = snake.some(el => el[0]===indexR && el[1] === indexC) && "snake";
                         if(type !== "snake"){
                             type = (food[0] === indexR && food[1] === indexC) && "food";
                         }
                         return(
-                         <div className={`cell ${type}`} key={indexC}></div>
+                         <div className={`cellA ${type}`} key={indexC}></div>
                          )
                     })}
                 </div>
