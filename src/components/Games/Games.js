@@ -8,7 +8,7 @@ function Games() {
     return (
 
         <div className="Game">
-          <div className="gameheader"></div>
+          {/* <div className="gameheader"></div> */}
 
           < Card/>
 

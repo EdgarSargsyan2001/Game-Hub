@@ -7,8 +7,9 @@ import "../picturesGame.css";
 
 const HeaderPictur = ({ moves, bestScore, handleRestart }) => {
   return (
-    <div>
+    <div >
       <h1 className="header-pictur">Memory Game</h1>
+
       <div>
       <div className="sub-header">
           <div className="moves">
@@ -16,12 +17,12 @@ const HeaderPictur = ({ moves, bestScore, handleRestart }) => {
             {moves}
           </div>
           <div className="reshuffle">
-            <button 
+            {/* <button 
             onClick={handleRestart}
             className="reshuffle-button"
             >
               <FaRedo />
-            </button>
+            </button> */}
           </div>
           {localStorage.getItem("bestScore") && (
             <div className="high-score">

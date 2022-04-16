@@ -1,13 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { collection, getDocs, getFirestore,doc, setDoc} from "firebase/firestore";
+
 import uniqueCardsArray from "./data.js";
-// import "bootstrap/dist/css/bootstrap.min.css";
-
-// import { Col, Container, Row } from "react-bootstrap";
-
-
 import PicturCard from './picturCard/index';
 import Finish from './Finish/index';
 import HeaderPictur from './Header1/index';
+import { async } from "@firebase/util";
 
 
 
@@ -27,7 +25,8 @@ function shuffleCards(array) {
   return array;
 }
 
-const PicturesGame = () => {
+const PicturesGame = ({accauntData,hesAccaunt,db}) => {
+
   const [cards, setCards] = useState(() =>
     shuffleCards(uniqueCardsArray.concat(uniqueCardsArray))
   );
@@ -36,10 +35,27 @@ const PicturesGame = () => {
   const [moves, setMoves] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [shouldDisableAllCards, setShouldDisableAllCards] = useState(false);
-  const [bestScore1, setBestScore1] = useState(
-    JSON.parse(localStorage.getItem("bestScore1")) || Number.POSITIVE_INFINITY
-  );
+  const [bestScore1, setBestScore1] = useState(accauntData?.PicturesGame?.scorre ? accauntData.PicturesGame.scorre : 0);
   const timeout = useRef(null);
+
+
+  useEffect(async()=>{
+    if( hesAccaunt){
+      
+      const db = getFirestore()
+      const querySnapshot = await getDocs(collection(db, "users"));
+      let newData
+
+      querySnapshot.forEach((doc) => {
+          if(doc.id === hesAccaunt.uid){
+
+              newData = {...doc.data(),id:doc.id,email:hesAccaunt.email}
+                  
+          }
+      })
+      setBestScore1(newData?.PicturesGame?.scorre ? newData?.PicturesGame?.scorre : 0)
+    }
+  },[moves])
 
   const disable = () => {
     setShouldDisableAllCards(true);
@@ -106,6 +122,28 @@ const PicturesGame = () => {
     return Boolean(matchedCards[card.type]);
   };
   const handleRestart = () => {
+    if(hesAccaunt){
+      if(accauntData?.PicturesGame?.scorre){
+
+        if(moves < accauntData?.PicturesGame?.scorre){
+          
+          setDoc(doc(db, "users", hesAccaunt?.uid), {
+            ...accauntData,
+            email:hesAccaunt.email,
+            PicturesGame:{scorre:moves},
+            
+          });
+        }
+      }else{
+        setDoc(doc(db, "users", hesAccaunt?.uid), {
+          ...accauntData,
+          email:hesAccaunt.email,
+          PicturesGame:{scorre:moves},
+          
+        });
+      }
+
+    }
     setMatchedcards({});
     setOpencards([]);
     setShowModal(false);
@@ -115,7 +153,7 @@ const PicturesGame = () => {
   };
 
   return (
-    <div>
+    <div className="mainDiv">
       <HeaderPictur
         moves={moves}
         bestScore={bestScore1}

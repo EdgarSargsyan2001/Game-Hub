@@ -36,10 +36,10 @@ const gameCard = [
         alt:"PicturesGame"
     },
     {
-        src: "./Images/zar.jpeg",
-        gameName: 'picturesgame',
+        src: "./Images/game2048.png",
+        gameName: 'Game2048',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
-        alt:"PicturesGame"
+        alt:"Game2048"
     }
     
    
