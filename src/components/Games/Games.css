@@ -89,6 +89,9 @@
     padding: 15px;
 }
 
+.pictures{
+    width: 60%;
+}
 
 /*  /////////////    media    //////////////////      */
 
@@ -145,6 +148,9 @@
         width: 72%;
        font-size: 11px;
     }
+    .pictures{
+        width: 80%;
+    }
   }
   @media screen and (max-width: 640px) {
     :hover.card-item{
@@ -173,5 +179,13 @@
         height: 250px;
         
     }
-
+    .pictures{
+        width: 80%;
+    }
+    
+  }
+  @media screen and (max-width:1200px){
+    .pictures{
+        width: 80%;
+    }
   }

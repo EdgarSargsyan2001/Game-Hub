@@ -31,16 +31,17 @@ const gameCard = [
     },
     {
         src: "./Images/zar.jpeg",
-        gameName: 'pazl',
+        gameName: 'picturesgame',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
-        alt:"pazl"
+        alt:"PicturesGame"
     },
     {
-        src: "./Images/Tangs.jpeg",
-        gameName: 'hangman',
+        src: "./Images/zar.jpeg",
+        gameName: 'picturesgame',
         cardTaxt: "Lorem ipsum, dolor sit amet consectetur adipisicing",
-        alt:"pazl"
-    },
+        alt:"PicturesGame"
+    }
+    
    
 ];
 function Card() {

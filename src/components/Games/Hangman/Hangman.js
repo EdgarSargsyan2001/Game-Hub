@@ -116,7 +116,7 @@ function Hangman({ hesAccaunt, accauntData,db }) {
 
 
   return (
-    <div className="container">
+    <div className="container-hangman">
 
       <h1 className="hangmanName">HANGMAN</h1>
       <h3>Guess the footballers!</h3>
