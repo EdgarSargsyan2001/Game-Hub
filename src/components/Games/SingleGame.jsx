@@ -6,9 +6,11 @@ import RockPaperScissors from "./RockPaperScissors/RockPaperScissors";
 import TicTacToe from "./TicTacToe/TicTacToe.jsx";
 import SnakeArea from "./snake/SnakeArea";
 import Hangman from "./Hangman/Hangman";
+import Game2048 from './aa/Game2048'
 import {hasAccaunt} from '../../App'
 
 import './SingleGame.css'
+import PicturesGame from './picturesGame/PicturesGame';
 
 
 function SingleGame() {
@@ -19,7 +21,7 @@ function SingleGame() {
   const db = getFirestore()
 
 
-  switch (gameName) {
+  switch (gameName.toLowerCase()) {
     case "hangman":
       return (
         
@@ -47,6 +49,21 @@ function SingleGame() {
           <TicTacToe accauntData={accauntData} hesAccaunt={hesAccaunt} db={db} />
         </div>
       );
+    case "picturesgame":
+      
+      return (
+        <div  className="div-height PicturesGame">
+          <PicturesGame accauntData={accauntData} hesAccaunt={hesAccaunt} db={db} />
+        </div>
+      );
+    case "game2048":
+    
+      return (
+        <div  className="div-height game2048">
+          <Game2048 accauntData={accauntData} hesAccaunt={hesAccaunt} db={db} />
+        </div>
+      );
+
       default:
         return(
           <div className="div-height">There isn't game</div>

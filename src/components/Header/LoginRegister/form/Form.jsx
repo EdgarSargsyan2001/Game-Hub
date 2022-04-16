@@ -34,7 +34,7 @@ function Form({ buttonTitle, handleClick, title }) {
   return (
     <div className="form-div">
       <form className="form" onSubmit={(e) => onSubmit(e)}>
-        {/* <h2 className="title" >{title}</h2> */}
+
         <Typography className="title" mb={3} color="primary" align="center">
           {title}
         </Typography>
@@ -45,7 +45,6 @@ function Form({ buttonTitle, handleClick, title }) {
           className="emailInput"
           error={emailError}
           helperText={emailErrorText}
-          // required
           autoFocus
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -58,7 +57,6 @@ function Form({ buttonTitle, handleClick, title }) {
           className="passwordInput"
           error={passwordError}
           helperText={passwordErrorText}
-          // required
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

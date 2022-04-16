@@ -22,6 +22,7 @@ function LeaderPage({}) {
     const [snakeAreaWin,setSnakeAreaWin] = useState(undefined)
     const [hangmanWin,setHangmanWin] = useState(undefined)
     const [TicTacToe,setTicTacToe] = useState(undefined)
+    const [PicturesGame,setPicturesGame] = useState(undefined)
     
 
 
@@ -33,6 +34,7 @@ function LeaderPage({}) {
             setSnakeAreaWin(alluserData.filter(el=>el.SnakeArea)?.sort((a,b) => b?.SnakeArea?.scorre - a?.SnakeArea?.scorre))
             setHangmanWin(alluserData.filter(el=>el.Hangman)?.sort((a,b) => b?.Hangman?.scorre - a?.Hangman?.scorre))
             setTicTacToe(alluserData.filter(el=>el.TicTacToe)?.sort((a,b) => b?.TicTacToe?.scorre - a?.TicTacToe?.scorre))
+            setPicturesGame(alluserData.filter(el=>el.PicturesGame)?.sort((a,b) => a?.PicturesGame?.scorre - b?.PicturesGame?.scorre))
         }
 
 
@@ -70,6 +72,9 @@ function LeaderPage({}) {
 
                         <MenuItem  value='TicTacToe'>
                             TicTacToe
+                        </MenuItem>
+                        <MenuItem  value='PicturesGame'>
+                            PicturesGame
                         </MenuItem>
                             
                                 
@@ -116,7 +121,15 @@ function LeaderPage({}) {
                     imgSrc='./Images/TicTacToe.jpeg'
             />
         }
-            
+        {
+            GameName === "PicturesGame" &&
+                <SingleLeaderGame
+                    GAMENAME="PicturesGame"
+                    DataWiner={PicturesGame}
+                    title="PicturesGame"
+                    imgSrc='./Images/zar.jpeg'
+            />
+        }   
         </div> 
 
     );

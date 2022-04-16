@@ -20,7 +20,12 @@
 .TicTacToe{
     height: 600px;
 }
-
+.PicturesGame{
+    height: 600px;
+}
+.game2048{
+    height: 67.9vh;
+}
 @media screen and (max-width:900px){
     .snakeGame{
         height: 600px;
@@ -29,5 +34,10 @@
 @media screen and (max-width:600px){
     .div-height{
         height: 80vh;
+    }
+}
+@media screen and (max-width:500px){
+    .PicturesGame{
+        height: 100vh;
     }
 }

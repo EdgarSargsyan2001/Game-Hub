@@ -90,13 +90,13 @@
   }
       /* winner text */
   .No-one-win{
-    color: rgb(237, 236, 243);
+    color: rgb(237, 236, 243) !important;
   }
   .winner-User{
-    color: rgb(240, 34, 34);
+    color: rgb(240, 34, 34) !important;
   }
   .winner-Computer{
-    color: rgb(40, 184, 12);
+    color: rgb(40, 184, 12) !important;
   }
   
   @media screen and (max-width:750px) {

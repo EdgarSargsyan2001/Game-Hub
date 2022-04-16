@@ -5,7 +5,7 @@
     width: 250px;
     height: 350px;
     padding: 15px;
-    background: rgba(0, 0, 0, 0.622);
+    background: rgba(255, 255, 255,0.9);
     background-position-x:-100px;
     box-shadow: 0 0px 20px 5px rgba(25, 118, 210, 0.851);
 }
@@ -14,18 +14,18 @@
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
-
+    width: 78%;
 }
 .emailInput,.passwordInput{
     border-radius: 8px;
-    background: rgb(255, 255, 255) !important;
-    color: red !important;
+    /* border:1px solid aqua !important; */
+    /* background: rgb(255, 255, 255) !important; */
     margin-bottom: 40px !important;
-    padding: 1px !important;
+    /* padding: 1px !important; */
 }
 
 .buttonLogReg{
-    width: 245px !important;
+    width: 195px !important;
     padding: 10px;
     cursor: pointer;
     color: white;
@@ -37,3 +37,4 @@
     /* margin-bottom: 30px; */
     /* color: #1976D2FF; */
 /* }  */
+

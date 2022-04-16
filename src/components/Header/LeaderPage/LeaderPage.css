@@ -36,7 +36,7 @@
 }
 .winnerName{
     text-align: center;
-    color: #1976D2FF;
+    color: #1976D2FF !important;
 }
 .YourScore{
     color: green;
